@@ -11,6 +11,7 @@ This folder contains usage examples.
 2. Run app
 
 ```bash
+make install
 .venv/bin/python3 examples/tickers.py
 ```
 
