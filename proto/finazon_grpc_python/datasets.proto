@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package finazon;
+
+message DatasetItem {
+  string code = 1;
+  string name = 2;
+}
+
+message DatasetsRequest {
+  string code = 1;
+  int32  page = 2;
+  int32  page_size = 3;
+}
+
+message DatasetsResponse {
+  repeated DatasetItem result = 1;
+}
+
+/**
+ * DatasetsService provide access to Finazon datasets
+ */
+service DatasetsService {
+  // Get a list of all datasets available at Finazon.
+  rpc GetDatasets(DatasetsRequest) returns (DatasetsResponse) {};
+}

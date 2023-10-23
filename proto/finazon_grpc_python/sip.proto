@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package finazon;
+
+// trades
+
+message SipTradesItem {
+  int64  trade_date = 1;
+  string market_center = 2;
+  string topic = 3;
+  double price = 4;
+  int64  quantity = 5;
+  string sales_conditions = 6;
+}
+
+message SipTradesRequest {
+  string ticker = 1;
+  string mic = 2;
+  string country = 3;
+  string market = 4;
+  int64  start_at = 5;
+  int64  end_at = 6;
+  string tape = 7;
+  int32  page = 8;
+  int32  page_size = 9;
+  string order = 10;
+  string cqs = 11;
+  string cik = 12;
+  string cusip = 13;
+  string isin = 14;
+  string composite_figi = 15;
+  string share_figi = 16;
+  string lei = 17;
+}
+
+message SipTradesResponse {
+  repeated SipTradesItem result = 1;
+}
+
+// market center
+
+message SipMarketCenterRequest {
+}
+
+message SipMarketCenterItem {
+  string name = 1;
+  string code = 2;
+}
+
+message SipMarketCenterResponse {
+  repeated SipMarketCenterItem result = 1;
+}
+
+/**
+ * SipService provide access to Finazon SIP
+ */
+service SipService {
+  // Returns detailed information on trades executed through the Securities Information Processor (SIP)
+  rpc GetTrades(SipTradesRequest) returns (SipTradesResponse) {};
+
+  // Returns a list of market centers
+  rpc GetMarketCenter(SipMarketCenterRequest) returns (SipMarketCenterResponse) {};
+}

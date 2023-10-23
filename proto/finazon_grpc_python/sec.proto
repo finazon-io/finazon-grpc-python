@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package finazon;
+
+message SecFillingsRequest {
+  int64 cik = 1;
+  string ticker = 3;
+  repeated string form_type = 4;
+  int64 filled_from_ts = 5;
+  int64 filled_to_ts = 6;
+  int32 page = 7;
+  int32 page_size = 8;
+  string cqs = 9;
+  string cusip = 10;
+  string isin = 11;
+  string composite_figi = 12;
+  string share_figi = 13;
+  string lei = 14;
+}
+
+message SecFillingsResponse {
+  repeated SecFillingsItem result = 1;
+}
+
+message SecFillingsItem {
+  repeated string ticker = 1;
+  int64 cik = 2;
+  string form_type = 3;
+  int64 filed_at = 4;
+  string filing_url = 5;
+  repeated SecFilingFile files = 6;
+}
+
+message SecFilingFile {
+    string name = 1;
+    int32 size = 2;
+    string type = 3;
+    string url = 4;;
+}
+
+/**
+ * SecService provide access to SEC EDGAR filings API
+ */
+service SecService {
+  // Real-time and historical access to all forms, filings, and exhibits directly from the SEC's EDGAR system.
+  rpc GetFilings(SecFillingsRequest) returns (SecFillingsResponse) {};
+}

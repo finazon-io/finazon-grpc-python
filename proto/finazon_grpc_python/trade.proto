@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package finazon;
+
+message TradesItem {
+  int64 trade_date = 1;
+  double price = 2;
+  int64 quantity = 3;
+}
+
+message TradesRequest {
+  string publisher = 1;
+  string ticker = 2;
+  string mic = 3;
+  string country = 4;
+  string market = 5;
+  int64  start_at = 6;
+  int64  end_at = 7;
+  string tape = 8;
+  int32  page = 9;
+  int32  page_size = 10;
+  string order = 11;
+  string cqs = 12;
+  string cik = 13;
+  string cusip = 14;
+  string isin = 15;
+  string composite_figi = 16;
+  string share_figi = 17;
+  string lei = 18;
+}
+
+message TradesResponse {
+  repeated TradesItem result = 1;
+}
+
+/**
+ * TradeService provide access to Finazon trades
+ */
+service TradeService {
+  // Returns general information on executed trades
+  rpc GetTrades(TradesRequest) returns (TradesResponse) {};
+}

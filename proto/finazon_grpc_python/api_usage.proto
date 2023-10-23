@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package finazon;
+
+message ApiUsageItem {
+  string product = 1;
+  ApiCalls apiCalls = 2;
+  ApiCalls historicalApiCalls = 3;
+}
+
+message ApiCalls {
+    int32 limit = 1;
+    int32 usage = 2;
+}
+
+message ApiUsageRequest {
+  string product = 1;
+}
+
+message ApiUsageResponse {
+  repeated ApiUsageItem result = 1;
+}
+
+/**
+ * ApiUsageService provide access to quota usage
+ */
+service ApiUsageService {
+  // Get a list of products with quota limit/usage
+  rpc GetApiUsage(ApiUsageRequest) returns (ApiUsageResponse) {};
+}

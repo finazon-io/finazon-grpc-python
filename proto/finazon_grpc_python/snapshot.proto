@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package finazon;
+
+message SnapshotRequest {
+  string publisher = 1;
+  string ticker = 2;
+  string market = 3;
+  string mic = 4;
+  string country = 5;
+  string cqs = 6;
+  string cik = 7;
+  string cusip = 8;
+  string isin = 9;
+  string composite_figi = 10;
+  string share_figi = 11;
+  string lei = 12;
+}
+
+message SnapshotOhlcv {
+  double open = 1;
+  double high = 2;
+  double low = 3;
+  double close = 4;
+  double volume = 5;
+}
+
+message SnapshotLastTrade {
+  int64 event_at = 1;
+  double price = 2;
+  int64 shares = 3;
+}
+
+message SnapshotLastFiftyTwoWeek {
+  double high = 1;
+  int64 high_at = 2;
+  double low = 3;
+  int64 low_at = 4;
+  double change = 5;
+  double change_percent = 6;
+  int64 average_volume = 7;
+}
+
+message SnapshotChange {
+  double day_change_percent = 1;
+  double week_change_percent = 2;
+  double month_change_percent = 3;
+}
+
+message SnapshotResponse {
+  SnapshotOhlcv last_day = 1;
+  SnapshotOhlcv last_month = 2;
+  SnapshotLastTrade last_trade = 3;
+  SnapshotOhlcv previous_day = 4;
+  SnapshotLastFiftyTwoWeek last_fifty_two_week = 5;
+  SnapshotChange change = 6;
+}
+
+/**
+ * SnapshotService provide access to ticker snapshot
+ */
+service SnapshotService {
+  // This endpoint returns a combination of different data points, such as daily performance, last quote, last trade, minute data, and previous day performance.
+  rpc GetSnapshot(SnapshotRequest) returns (SnapshotResponse) {};
+}

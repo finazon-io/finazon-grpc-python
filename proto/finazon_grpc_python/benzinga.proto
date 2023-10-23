@@ -1,0 +1,216 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package finazon;
+
+// DividentsCalendar
+
+message DividentsCalendarRequest {
+  string ticker = 1;
+  string date = 2;
+  int64  start_at = 3;
+  int64  end_at = 4;
+  int32  page = 5;
+  int32  page_size = 6;
+  string order = 7;
+  string cqs = 8;
+  string cik = 9;
+  string cusip = 10;
+  string isin = 11;
+  string composite_figi = 12;
+  string share_figi = 13;
+  string lei = 14;
+}
+
+message DividentsCalendarResponse {
+  repeated DividentsCalendarItem result = 1;
+}
+
+message DividentsCalendarItem {
+  string record_id = 1;
+  string ticker = 2;
+  string name = 3;
+  string mic = 4;
+  string currency = 5;
+  string ex_dividend_date = 6;
+  string dividend_type = 7;
+  double dividend = 8;
+  double dividend_yield = 9;
+  string dividend_prior = 10;
+  string declaration_date = 11;
+  string payable_date = 12;
+  string record_date = 13;
+  bool   end_regular_dividend = 14;
+  int32 frequency = 15;
+  int32 importance = 16;
+  string notes = 17;
+  int64 updated = 18;
+}
+
+// EarningsCalendar
+
+message EarningsCalendarRequest {
+  string ticker = 1;
+  string date = 2;
+  int64  start_at = 3;
+  int64  end_at = 4;
+  int32  page = 5;
+  int32  page_size = 6;
+  string order = 7;
+  string cqs = 8;
+  string cik = 9;
+  string cusip = 10;
+  string isin = 11;
+  string composite_figi = 12;
+  string share_figi = 13;
+  string lei = 14;
+}
+
+message EarningsCalendarResponse {
+  repeated EarningsCalendarItem result = 1;
+}
+
+message EarningsCalendarItem {
+  message Eps {
+    double estimated = 1;
+    double prior = 2;
+    double reported = 3;
+    double surprise = 4;
+    double surprise_percent = 5;
+    string type = 6;
+  }
+
+  message Revenue {
+    double estimated = 1;
+    double prior = 2;
+    double reported = 3;
+    double surprise = 4;
+    double surprise_percent = 5;
+    string type = 6;
+  }
+
+  string currency = 1;
+  string date = 2;
+  bool   date_confirmed = 3;
+  Eps    eps = 4;
+  int32  importance = 5;
+  string mic = 6;
+  string name = 7;
+  string notes = 8;
+  string period = 9;
+  int32  period_year = 10;
+  string record_id = 11;
+  Revenue revenue = 12;
+  string ticker = 13;
+  string time = 14;
+  int64  updated = 15;
+}
+
+// News
+
+message NewsRequest {
+  string ticker = 1;
+  string date = 2;
+  int64  start_at = 3;
+  int64  end_at = 4;
+  int32  page = 5;
+  int32  page_size = 6;
+  string order = 7;
+  string cqs = 8;
+  string cik = 9;
+  string cusip = 10;
+  string isin = 11;
+  string composite_figi = 12;
+  string share_figi = 13;
+  string lei = 14;
+}
+
+message NewsResponse {
+  repeated NewsItem result = 1;
+}
+
+message NewsItem {
+  string author = 1;
+  repeated string channels = 2;
+  google.protobuf.Timestamp created_at = 3;
+  repeated string images = 4;
+  int32 record_id = 5;
+  repeated string tags = 6;
+  repeated string tickers = 7;
+  string title = 8;
+  google.protobuf.Timestamp updated_at = 9;
+  string url = 10;
+}
+
+message IPORequest {
+  int64  start_at = 3;
+  int64  end_at = 4;
+  int32  page = 5;
+  int32  page_size = 6;
+  string order = 7;
+  string exchange = 15;
+}
+
+message IPOResponse {
+  repeated IPOItem ipos = 1;
+}
+
+message IPOItem {
+  string record_id = 1;
+  string ticker = 2;
+  string name = 3;
+  string mic = 4;
+  string currency = 5;
+  string date = 6;
+  bool   open_date_verified = 7;
+  string time = 8;
+  double price_max = 9;
+  double price_min = 10;
+  double price_open = 11;
+  double price_public_offering =12;
+  double offering_shares = 13;
+  double offering_shares_ord_adr = 14;
+  double offering_value = 15;
+  double ord_shares_out_after_offer = 16;
+  double market_cap_at_offer = 17;
+  string deal_status =18;
+  string initial_filing_date = 19;
+  string insider_lockup_date = 20;
+  int32 insider_lockup_days = 21;
+  string ipo_type = 22;
+  double last_yr_income = 23;
+  double last_yr_income_year = 24;
+  double last_yr_revenue = 25;
+  double last_yr_revenue_year = 26;
+  repeated string lead_underwriters = 27;
+  repeated string other_underwriters = 28;
+  string notes = 29;
+  string pricing_date = 30;
+  string sec_accession_number = 31;
+  string sec_filing_url = 32;
+  double shares_outstanding = 33;
+  double sic = 34;
+  bool spac_converted_to_target = 35;
+  string state_location = 36;
+  string underwriter_quiet_expiration_date = 37;
+  int32 underwriter_quiet_expiration_days = 38;
+  int64 updated = 39;
+}
+
+/**
+ * BenzingaService provide access to Benzinga
+ */
+service BenzingaService {
+  // Returns the dividends calendar from Benzinga
+  rpc GetDividentsCalendar(DividentsCalendarRequest) returns (DividentsCalendarResponse) {};
+
+  // Returns the earnings calendar from Benzinga
+  rpc GetEarningsCalendar(EarningsCalendarRequest) returns (EarningsCalendarResponse) {};
+
+  // Returns the news articles from Benzinga
+  rpc GetNews(NewsRequest) returns (NewsResponse) {};
+
+  // Returns IPO data from Benzinga
+  rpc GetIPO(IPORequest) returns (IPOResponse) {};
+}

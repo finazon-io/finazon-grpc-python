@@ -1,0 +1,222 @@
+syntax = "proto3";
+
+package finazon;
+
+message TimeSeries {
+    int64 timestamp = 1;
+    double open = 2;
+    double close = 3;
+    double high = 4;
+    double low = 5;
+    double volume = 6;
+}
+
+message TimeSeriesRequest {
+    string publisher = 1;
+    string ticker = 2;
+    string exchange = 3;
+    string mic = 4;
+    string country = 5;
+    string instrument_type = 6;
+    string timezone = 7;
+    string interval = 8;
+    string date = 9;
+    int64 start_at = 10;
+    int64 end_at = 11;
+    int32 page = 12;
+    int32 page_size = 13;
+    string order = 14;
+    bool prepost = 15;
+    string market = 16;
+    string dataset = 17;
+    string cqs = 18;
+    string cik = 19;
+    string cusip = 20;
+    string isin = 21;
+    string composite_figi = 22;
+    string share_figi = 23;
+    string lei = 24;
+}
+
+message TimeSeriesResponse {
+    repeated TimeSeries result = 1;
+}
+
+message TimeSeriesAtrRequest {
+    int32 time_period = 1;
+    TimeSeriesRequest time_series = 2;
+}
+
+message TimeSeriesAtrResponse {
+    message Atr {
+        int64 timestamp = 1;
+        string atr = 2;
+    }
+
+    repeated Atr result = 1;
+}
+
+message TimeSeriesBBandsRequest {
+    int32 time_period = 1;
+    string series_type = 2;
+    double sd = 3;
+    string ma_type = 4;
+    TimeSeriesRequest time_series = 5;
+}
+
+message TimeSeriesBBandsResponse {
+    message BBands {
+        int64 timestamp = 1;
+        string upper_band = 2;
+        string middle_band = 3;
+        string lower_band = 4;
+    }
+
+    repeated BBands result = 1;
+}
+
+message TimeSeriesIchimokuRequest {
+    int32 conversion_line_period = 1;
+    int32 base_line_period = 2;
+    int32 leading_span_b_period = 3;
+    int32 lagging_span_period = 4;
+    bool include_ahead_span_period = 5;
+    TimeSeriesRequest time_series = 6;
+}
+
+message TimeSeriesIchimokuResponse {
+    message Ichimoku {
+        int64 timestamp = 1;
+        string tenkan_sen = 2;
+        string kijun_sen = 3;
+        string senkou_span_a = 4;
+        string senkou_span_b = 5;
+        string chikou_span = 6;
+    }
+
+    repeated Ichimoku result = 1;
+}
+
+message TimeSeriesMaRequest {
+    int32 time_period = 1;
+    string series_type = 2;
+    string ma_type = 3;
+    TimeSeriesRequest time_series = 4;
+}
+
+message TimeSeriesMaResponse {
+    message Ma {
+        int64 timestamp = 1;
+        string ma = 2;
+    }
+
+    repeated Ma result = 1;
+}
+
+message TimeSeriesMacdRequest {
+    string series_type = 1;
+    int32 fast_period = 2;
+    int32 slow_period = 3;
+    int32 signal_period = 4;
+    TimeSeriesRequest time_series = 5;
+}
+
+message TimeSeriesMacdResponse {
+    message Macd {
+        int64 timestamp = 1;
+        string macd = 2;
+        string macd_signal = 3;
+        string macd_hist = 4;
+    }
+
+    repeated Macd result = 1;
+}
+
+message TimeSeriesObvRequest {
+    string series_type = 1;
+    TimeSeriesRequest time_series = 2;
+}
+
+message TimeSeriesObvResponse {
+    message Obv {
+        int64 timestamp = 1;
+        string obv = 2;
+    }
+
+    repeated Obv result = 1;
+}
+
+message TimeSeriesRsiRequest {
+    int32 time_period = 1;
+    string series_type = 2;
+    TimeSeriesRequest time_series = 3;
+}
+
+message TimeSeriesRsiResponse {
+    message Rsi {
+        int64 timestamp = 1;
+        string rsi = 2;
+    }
+
+    repeated Rsi result = 1;
+}
+
+message TimeSeriesSarRequest {
+    double acceleration = 1;
+    double maximum = 2;
+    TimeSeriesRequest time_series = 3;
+}
+
+message TimeSeriesSarResponse {
+    message Sar {
+        int64 timestamp = 1;
+        string sar = 2;
+    }
+
+    repeated Sar result = 1;
+}
+
+message TimeSeriesStochRequest {
+    int32 fast_k_period = 1;
+    int32 slow_k_period = 2;
+    int32 slow_d_period = 3;
+    string slow_kma_type = 4;
+    string slow_dma_type = 5;
+    TimeSeriesRequest time_series = 6;
+}
+
+message TimeSeriesStochResponse {
+    message Stoch {
+        int64 timestamp = 1;
+        string slow_k = 2;
+        string slow_d = 3;
+    }
+
+    repeated Stoch result = 1;
+}
+
+/**
+ * TimeSeriesService provide access to time series data
+ */
+service TimeSeriesService {
+    // Get time series data without technical indicators
+    rpc GetTimeSeries(TimeSeriesRequest) returns (TimeSeriesResponse) {};
+    // Get time series data for ATR technical indicator.
+    rpc GetTimeSeriesAtr(TimeSeriesAtrRequest) returns (TimeSeriesAtrResponse) {};
+    // Get time series data for BBands technical indicator.
+    rpc GetTimeSeriesBBands(TimeSeriesBBandsRequest) returns (TimeSeriesBBandsResponse) {};
+    // Get time series data for Ichimoku technical indicator.
+    rpc GetTimeSeriesIchimoku(TimeSeriesIchimokuRequest) returns (TimeSeriesIchimokuResponse) {};
+    // Get time series data for Ma technical indicator.
+    rpc GetTimeSeriesMa(TimeSeriesMaRequest) returns (TimeSeriesMaResponse) {};
+    // Get time series data for Macd technical indicator.
+    rpc GetTimeSeriesMacd(TimeSeriesMacdRequest) returns (TimeSeriesMacdResponse) {};
+    // Get time series data for Obv technical indicator.
+    rpc GetTimeSeriesObv(TimeSeriesObvRequest) returns (TimeSeriesObvResponse) {};
+    // Get time series data for Rsi technical indicator.
+    rpc GetTimeSeriesRsi(TimeSeriesRsiRequest) returns (TimeSeriesRsiResponse) {};
+    // Get time series data for Sar technical indicator.
+    rpc GetTimeSeriesSar(TimeSeriesSarRequest) returns (TimeSeriesSarResponse) {};
+    // Get time series data for Stoch technical indicator.
+    rpc GetTimeSeriesStoch(TimeSeriesStochRequest) returns (TimeSeriesStochResponse) {};
+}

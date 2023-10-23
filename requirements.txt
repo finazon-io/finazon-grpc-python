@@ -1,0 +1,6 @@
+grpcio-tools==1.58.0 ; python_version >= "3.10" and python_version < "4.0"
+grpcio==1.58.0 ; python_version >= "3.10" and python_version < "4.0"
+mypy-protobuf==3.5.0 ; python_version >= "3.10" and python_version < "4.0"
+protobuf==4.24.4 ; python_version >= "3.10" and python_version < "4.0"
+setuptools==68.2.2 ; python_version >= "3.10" and python_version < "4.0"
+types-protobuf==4.24.0.2 ; python_version >= "3.10" and python_version < "4.0"

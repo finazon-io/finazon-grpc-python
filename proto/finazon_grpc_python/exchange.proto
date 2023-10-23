@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package finazon;
+
+// Crypto
+
+message MarketsCryptoRequest {
+  int32  page = 1;
+  int32  page_size = 2;
+}
+
+message MarketsCryptoResponseItem {
+  string code = 1;
+  string name = 2;
+}
+
+message MarketsCryptoResponse {
+  repeated MarketsCryptoResponseItem result = 1;
+}
+
+// Stocks
+
+message MarketsStocksRequest {
+  string country = 1;
+  string name = 2;
+  string code = 3;
+  int32  page = 4;
+  int32  page_size = 5;
+}
+
+message MarketsStocksResponseItem {
+  string country = 1;
+  string mic = 2;
+  string name = 3;
+}
+
+message MarketsStocksResponse {
+  repeated MarketsStocksResponseItem result = 1;
+}
+
+/**
+ * ExchangeService provide access to Finazon exchange data
+ */
+service ExchangeService {
+  // Returns a list of supported crypto markets
+  rpc GetMarketsCrypto(MarketsCryptoRequest) returns (MarketsCryptoResponse) {};
+
+  // Returns a list of supported stock markets
+  rpc GetMarketsStocks(MarketsStocksRequest) returns (MarketsStocksResponse) {};
+}
