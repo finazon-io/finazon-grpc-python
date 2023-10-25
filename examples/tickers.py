@@ -24,6 +24,10 @@ def get_tickers_crypto() -> FindTickerCryptoResponse:
 if __name__ == '__main__':
     try:
         r = get_tickers_crypto()
-        print(r)
+        for t in r.result:
+            print(f"Ticker: {t.ticker}, publisher: {t.publisher}")
     except grpc.RpcError as e:
-        print(f'Error response: {e}')
+        if e.code() == grpc.StatusCode.UNAUTHENTICATED:
+            print("Please provide valid api key")
+        else:
+            print(f'Error response: {e}')
