@@ -6,6 +6,7 @@ version = "1.0.104.1"
 description = "Finazon gRPC client library for Python"
 authors = ["Finazon <team@finazon.io>"]
 readme = "README.md"
+license = "MIT"
 homepage = "https://github.com/finazon-io/finazon-grpc-python"
 repository = "https://github.com/finazon-io/finazon-grpc-python"
 

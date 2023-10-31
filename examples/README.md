@@ -27,3 +27,7 @@ Ticker: $AI/ETH, publisher: uniswap
 Ticker: $AI/ETH, publisher: finazon
 ...
 ```
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE.txt` file in this repository for more details.
