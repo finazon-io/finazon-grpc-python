@@ -17,3 +17,7 @@ poetry add finazon-grpc-python
 
 ## Usage example
 See [examples](https://github.com/finazon-io/finazon-grpc-python/tree/main/examples)
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE.txt` file in this repository for more details.
