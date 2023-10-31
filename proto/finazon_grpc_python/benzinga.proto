@@ -6,7 +6,7 @@ package finazon;
 
 // DividentsCalendar
 
-message DividentsCalendarRequest {
+message GetDividentsCalendarRequest {
   string ticker = 1;
   string date = 2;
   int64  start_at = 3;
@@ -23,7 +23,7 @@ message DividentsCalendarRequest {
   string lei = 14;
 }
 
-message DividentsCalendarResponse {
+message GetDividentsCalendarResponse {
   repeated DividentsCalendarItem result = 1;
 }
 
@@ -50,7 +50,7 @@ message DividentsCalendarItem {
 
 // EarningsCalendar
 
-message EarningsCalendarRequest {
+message GetEarningsCalendarRequest {
   string ticker = 1;
   string date = 2;
   int64  start_at = 3;
@@ -67,7 +67,7 @@ message EarningsCalendarRequest {
   string lei = 14;
 }
 
-message EarningsCalendarResponse {
+message GetEarningsCalendarResponse {
   repeated EarningsCalendarItem result = 1;
 }
 
@@ -109,7 +109,7 @@ message EarningsCalendarItem {
 
 // News
 
-message NewsRequest {
+message GetNewsRequest {
   string ticker = 1;
   string date = 2;
   int64  start_at = 3;
@@ -126,7 +126,7 @@ message NewsRequest {
   string lei = 14;
 }
 
-message NewsResponse {
+message GetNewsResponse {
   repeated NewsItem result = 1;
 }
 
@@ -143,7 +143,7 @@ message NewsItem {
   string url = 10;
 }
 
-message IPORequest {
+message GetIPORequest {
   int64  start_at = 3;
   int64  end_at = 4;
   int32  page = 5;
@@ -152,7 +152,7 @@ message IPORequest {
   string exchange = 15;
 }
 
-message IPOResponse {
+message GetIPOResponse {
   repeated IPOItem ipos = 1;
 }
 
@@ -203,14 +203,14 @@ message IPOItem {
  */
 service BenzingaService {
   // Returns the dividends calendar from Benzinga
-  rpc GetDividentsCalendar(DividentsCalendarRequest) returns (DividentsCalendarResponse) {};
+  rpc GetDividentsCalendar(GetDividentsCalendarRequest) returns (GetDividentsCalendarResponse) {};
 
   // Returns the earnings calendar from Benzinga
-  rpc GetEarningsCalendar(EarningsCalendarRequest) returns (EarningsCalendarResponse) {};
+  rpc GetEarningsCalendar(GetEarningsCalendarRequest) returns (GetEarningsCalendarResponse) {};
 
   // Returns the news articles from Benzinga
-  rpc GetNews(NewsRequest) returns (NewsResponse) {};
+  rpc GetNews(GetNewsRequest) returns (GetNewsResponse) {};
 
   // Returns IPO data from Benzinga
-  rpc GetIPO(IPORequest) returns (IPOResponse) {};
+  rpc GetIPO(GetIPORequest) returns (GetIPOResponse) {};
 }

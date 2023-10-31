@@ -7,13 +7,13 @@ message DatasetItem {
   string name = 2;
 }
 
-message DatasetsRequest {
+message GetDatasetsRequest {
   string code = 1;
   int32  page = 2;
   int32  page_size = 3;
 }
 
-message DatasetsResponse {
+message GetDatasetsResponse {
   repeated DatasetItem result = 1;
 }
 
@@ -22,5 +22,5 @@ message DatasetsResponse {
  */
 service DatasetsService {
   // Get a list of all datasets available at Finazon.
-  rpc GetDatasets(DatasetsRequest) returns (DatasetsResponse) {};
+  rpc GetDatasets(GetDatasetsRequest) returns (GetDatasetsResponse) {};
 }

@@ -8,7 +8,7 @@ message TradesItem {
   int64 quantity = 3;
 }
 
-message TradesRequest {
+message GetTradesRequest {
   string publisher = 1;
   string ticker = 2;
   string mic = 3;
@@ -29,7 +29,7 @@ message TradesRequest {
   string lei = 18;
 }
 
-message TradesResponse {
+message GetTradesResponse {
   repeated TradesItem result = 1;
 }
 
@@ -38,5 +38,5 @@ message TradesResponse {
  */
 service TradeService {
   // Returns general information on executed trades
-  rpc GetTrades(TradesRequest) returns (TradesResponse) {};
+  rpc GetTrades(GetTradesRequest) returns (GetTradesResponse) {};
 }

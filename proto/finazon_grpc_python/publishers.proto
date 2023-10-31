@@ -7,13 +7,13 @@ message PublisherItem {
   string name = 2;
 }
 
-message PublishersRequest {
+message GetPublishersRequest {
   string code = 1;
   int32  page = 2;
   int32  page_size = 3;
 }
 
-message PublishersResponse {
+message GetPublishersResponse {
   repeated PublisherItem result = 1;
 }
 
@@ -22,5 +22,5 @@ message PublishersResponse {
  */
 service PublisherService {
   // Get a list of all publishers available at Finazon.
-  rpc GetPublishers(PublishersRequest) returns (PublishersResponse) {};
+  rpc GetPublishers(GetPublishersRequest) returns (GetPublishersResponse) {};
 }

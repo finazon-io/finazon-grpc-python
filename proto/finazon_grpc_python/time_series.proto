@@ -11,7 +11,7 @@ message TimeSeries {
     double volume = 6;
 }
 
-message TimeSeriesRequest {
+message GetTimeSeriesRequest {
     string publisher = 1;
     string ticker = 2;
     string exchange = 3;
@@ -38,16 +38,16 @@ message TimeSeriesRequest {
     string lei = 24;
 }
 
-message TimeSeriesResponse {
+message GetTimeSeriesResponse {
     repeated TimeSeries result = 1;
 }
 
-message TimeSeriesAtrRequest {
+message GetTimeSeriesAtrRequest {
     int32 time_period = 1;
-    TimeSeriesRequest time_series = 2;
+    GetTimeSeriesRequest time_series = 2;
 }
 
-message TimeSeriesAtrResponse {
+message GetTimeSeriesAtrResponse {
     message Atr {
         int64 timestamp = 1;
         string atr = 2;
@@ -56,15 +56,15 @@ message TimeSeriesAtrResponse {
     repeated Atr result = 1;
 }
 
-message TimeSeriesBBandsRequest {
+message GetTimeSeriesBBandsRequest {
     int32 time_period = 1;
     string series_type = 2;
     double sd = 3;
     string ma_type = 4;
-    TimeSeriesRequest time_series = 5;
+    GetTimeSeriesRequest time_series = 5;
 }
 
-message TimeSeriesBBandsResponse {
+message GetTimeSeriesBBandsResponse {
     message BBands {
         int64 timestamp = 1;
         string upper_band = 2;
@@ -75,16 +75,16 @@ message TimeSeriesBBandsResponse {
     repeated BBands result = 1;
 }
 
-message TimeSeriesIchimokuRequest {
+message GetTimeSeriesIchimokuRequest {
     int32 conversion_line_period = 1;
     int32 base_line_period = 2;
     int32 leading_span_b_period = 3;
     int32 lagging_span_period = 4;
     bool include_ahead_span_period = 5;
-    TimeSeriesRequest time_series = 6;
+    GetTimeSeriesRequest time_series = 6;
 }
 
-message TimeSeriesIchimokuResponse {
+message GetTimeSeriesIchimokuResponse {
     message Ichimoku {
         int64 timestamp = 1;
         string tenkan_sen = 2;
@@ -97,14 +97,14 @@ message TimeSeriesIchimokuResponse {
     repeated Ichimoku result = 1;
 }
 
-message TimeSeriesMaRequest {
+message GetTimeSeriesMaRequest {
     int32 time_period = 1;
     string series_type = 2;
     string ma_type = 3;
-    TimeSeriesRequest time_series = 4;
+    GetTimeSeriesRequest time_series = 4;
 }
 
-message TimeSeriesMaResponse {
+message GetTimeSeriesMaResponse {
     message Ma {
         int64 timestamp = 1;
         string ma = 2;
@@ -113,15 +113,15 @@ message TimeSeriesMaResponse {
     repeated Ma result = 1;
 }
 
-message TimeSeriesMacdRequest {
+message GetTimeSeriesMacdRequest {
     string series_type = 1;
     int32 fast_period = 2;
     int32 slow_period = 3;
     int32 signal_period = 4;
-    TimeSeriesRequest time_series = 5;
+    GetTimeSeriesRequest time_series = 5;
 }
 
-message TimeSeriesMacdResponse {
+message GetTimeSeriesMacdResponse {
     message Macd {
         int64 timestamp = 1;
         string macd = 2;
@@ -132,12 +132,12 @@ message TimeSeriesMacdResponse {
     repeated Macd result = 1;
 }
 
-message TimeSeriesObvRequest {
+message GetTimeSeriesObvRequest {
     string series_type = 1;
-    TimeSeriesRequest time_series = 2;
+    GetTimeSeriesRequest time_series = 2;
 }
 
-message TimeSeriesObvResponse {
+message GetTimeSeriesObvResponse {
     message Obv {
         int64 timestamp = 1;
         string obv = 2;
@@ -146,13 +146,13 @@ message TimeSeriesObvResponse {
     repeated Obv result = 1;
 }
 
-message TimeSeriesRsiRequest {
+message GetTimeSeriesRsiRequest {
     int32 time_period = 1;
     string series_type = 2;
-    TimeSeriesRequest time_series = 3;
+    GetTimeSeriesRequest time_series = 3;
 }
 
-message TimeSeriesRsiResponse {
+message GetTimeSeriesRsiResponse {
     message Rsi {
         int64 timestamp = 1;
         string rsi = 2;
@@ -161,13 +161,13 @@ message TimeSeriesRsiResponse {
     repeated Rsi result = 1;
 }
 
-message TimeSeriesSarRequest {
+message GetTimeSeriesSarRequest {
     double acceleration = 1;
     double maximum = 2;
-    TimeSeriesRequest time_series = 3;
+    GetTimeSeriesRequest time_series = 3;
 }
 
-message TimeSeriesSarResponse {
+message GetTimeSeriesSarResponse {
     message Sar {
         int64 timestamp = 1;
         string sar = 2;
@@ -176,16 +176,16 @@ message TimeSeriesSarResponse {
     repeated Sar result = 1;
 }
 
-message TimeSeriesStochRequest {
+message GetTimeSeriesStochRequest {
     int32 fast_k_period = 1;
     int32 slow_k_period = 2;
     int32 slow_d_period = 3;
     string slow_kma_type = 4;
     string slow_dma_type = 5;
-    TimeSeriesRequest time_series = 6;
+    GetTimeSeriesRequest time_series = 6;
 }
 
-message TimeSeriesStochResponse {
+message GetTimeSeriesStochResponse {
     message Stoch {
         int64 timestamp = 1;
         string slow_k = 2;
@@ -200,23 +200,23 @@ message TimeSeriesStochResponse {
  */
 service TimeSeriesService {
     // Get time series data without technical indicators
-    rpc GetTimeSeries(TimeSeriesRequest) returns (TimeSeriesResponse) {};
+    rpc GetTimeSeries(GetTimeSeriesRequest) returns (GetTimeSeriesResponse) {};
     // Get time series data for ATR technical indicator.
-    rpc GetTimeSeriesAtr(TimeSeriesAtrRequest) returns (TimeSeriesAtrResponse) {};
+    rpc GetTimeSeriesAtr(GetTimeSeriesAtrRequest) returns (GetTimeSeriesAtrResponse) {};
     // Get time series data for BBands technical indicator.
-    rpc GetTimeSeriesBBands(TimeSeriesBBandsRequest) returns (TimeSeriesBBandsResponse) {};
+    rpc GetTimeSeriesBBands(GetTimeSeriesBBandsRequest) returns (GetTimeSeriesBBandsResponse) {};
     // Get time series data for Ichimoku technical indicator.
-    rpc GetTimeSeriesIchimoku(TimeSeriesIchimokuRequest) returns (TimeSeriesIchimokuResponse) {};
+    rpc GetTimeSeriesIchimoku(GetTimeSeriesIchimokuRequest) returns (GetTimeSeriesIchimokuResponse) {};
     // Get time series data for Ma technical indicator.
-    rpc GetTimeSeriesMa(TimeSeriesMaRequest) returns (TimeSeriesMaResponse) {};
+    rpc GetTimeSeriesMa(GetTimeSeriesMaRequest) returns (GetTimeSeriesMaResponse) {};
     // Get time series data for Macd technical indicator.
-    rpc GetTimeSeriesMacd(TimeSeriesMacdRequest) returns (TimeSeriesMacdResponse) {};
+    rpc GetTimeSeriesMacd(GetTimeSeriesMacdRequest) returns (GetTimeSeriesMacdResponse) {};
     // Get time series data for Obv technical indicator.
-    rpc GetTimeSeriesObv(TimeSeriesObvRequest) returns (TimeSeriesObvResponse) {};
+    rpc GetTimeSeriesObv(GetTimeSeriesObvRequest) returns (GetTimeSeriesObvResponse) {};
     // Get time series data for Rsi technical indicator.
-    rpc GetTimeSeriesRsi(TimeSeriesRsiRequest) returns (TimeSeriesRsiResponse) {};
+    rpc GetTimeSeriesRsi(GetTimeSeriesRsiRequest) returns (GetTimeSeriesRsiResponse) {};
     // Get time series data for Sar technical indicator.
-    rpc GetTimeSeriesSar(TimeSeriesSarRequest) returns (TimeSeriesSarResponse) {};
+    rpc GetTimeSeriesSar(GetTimeSeriesSarRequest) returns (GetTimeSeriesSarResponse) {};
     // Get time series data for Stoch technical indicator.
-    rpc GetTimeSeriesStoch(TimeSeriesStochRequest) returns (TimeSeriesStochResponse) {};
+    rpc GetTimeSeriesStoch(GetTimeSeriesStochRequest) returns (GetTimeSeriesStochResponse) {};
 }

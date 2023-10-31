@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package finazon;
 
-message SecFillingsRequest {
+message GetSecFillingsRequest {
   int64 cik = 1;
   string ticker = 3;
   repeated string form_type = 4;
@@ -18,7 +18,7 @@ message SecFillingsRequest {
   string lei = 14;
 }
 
-message SecFillingsResponse {
+message GetSecFillingsResponse {
   repeated SecFillingsItem result = 1;
 }
 
@@ -43,5 +43,5 @@ message SecFilingFile {
  */
 service SecService {
   // Real-time and historical access to all forms, filings, and exhibits directly from the SEC's EDGAR system.
-  rpc GetFilings(SecFillingsRequest) returns (SecFillingsResponse) {};
+  rpc GetFilings(GetSecFillingsRequest) returns (GetSecFillingsResponse) {};
 }

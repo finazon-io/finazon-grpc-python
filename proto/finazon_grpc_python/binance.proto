@@ -15,7 +15,7 @@ message BinanceTimeSeries {
   double taker_buy_quote_asset_volume = 10;
 }
 
-message BinanceTimeSeriesRequest {
+message GetBinanceTimeSeriesRequest {
   string ticker = 1;
   string timezone = 2;
   string interval = 3;
@@ -27,7 +27,7 @@ message BinanceTimeSeriesRequest {
   string order = 9;
 }
 
-message BinanceTimeSeriesResponse {
+message GetBinanceTimeSeriesResponse {
   repeated BinanceTimeSeries result = 1;
 }
 
@@ -36,5 +36,5 @@ message BinanceTimeSeriesResponse {
  */
 service BinanceService {
   // Get time series data without technical indicators
-  rpc GetTimeSeries(BinanceTimeSeriesRequest) returns (BinanceTimeSeriesResponse) {};
+  rpc GetTimeSeries(GetBinanceTimeSeriesRequest) returns (GetBinanceTimeSeriesResponse) {};
 }

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package finazon;
 
-message SnapshotRequest {
+message GetSnapshotRequest {
   string publisher = 1;
   string ticker = 2;
   string market = 3;
@@ -47,7 +47,7 @@ message SnapshotChange {
   double month_change_percent = 3;
 }
 
-message SnapshotResponse {
+message GetSnapshotResponse {
   SnapshotOhlcv last_day = 1;
   SnapshotOhlcv last_month = 2;
   SnapshotLastTrade last_trade = 3;
@@ -61,5 +61,5 @@ message SnapshotResponse {
  */
 service SnapshotService {
   // This endpoint returns a combination of different data points, such as daily performance, last quote, last trade, minute data, and previous day performance.
-  rpc GetSnapshot(SnapshotRequest) returns (SnapshotResponse) {};
+  rpc GetSnapshot(GetSnapshotRequest) returns (GetSnapshotResponse) {};
 }

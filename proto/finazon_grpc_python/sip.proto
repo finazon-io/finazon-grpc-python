@@ -13,7 +13,7 @@ message SipTradesItem {
   string sales_conditions = 6;
 }
 
-message SipTradesRequest {
+message GetSipTradesRequest {
   string ticker = 1;
   string mic = 2;
   string country = 3;
@@ -33,13 +33,13 @@ message SipTradesRequest {
   string lei = 17;
 }
 
-message SipTradesResponse {
+message GetSipTradesResponse {
   repeated SipTradesItem result = 1;
 }
 
 // market center
 
-message SipMarketCenterRequest {
+message GetSipMarketCenterRequest {
 }
 
 message SipMarketCenterItem {
@@ -47,7 +47,7 @@ message SipMarketCenterItem {
   string code = 2;
 }
 
-message SipMarketCenterResponse {
+message GetSipMarketCenterResponse {
   repeated SipMarketCenterItem result = 1;
 }
 
@@ -56,8 +56,8 @@ message SipMarketCenterResponse {
  */
 service SipService {
   // Returns detailed information on trades executed through the Securities Information Processor (SIP)
-  rpc GetTrades(SipTradesRequest) returns (SipTradesResponse) {};
+  rpc GetTrades(GetSipTradesRequest) returns (GetSipTradesResponse) {};
 
   // Returns a list of market centers
-  rpc GetMarketCenter(SipMarketCenterRequest) returns (SipMarketCenterResponse) {};
+  rpc GetMarketCenter(GetSipMarketCenterRequest) returns (GetSipMarketCenterResponse) {};
 }

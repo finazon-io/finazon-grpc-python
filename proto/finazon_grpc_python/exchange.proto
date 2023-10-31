@@ -4,7 +4,7 @@ package finazon;
 
 // Crypto
 
-message MarketsCryptoRequest {
+message GetMarketsCryptoRequest {
   int32  page = 1;
   int32  page_size = 2;
 }
@@ -14,13 +14,13 @@ message MarketsCryptoResponseItem {
   string name = 2;
 }
 
-message MarketsCryptoResponse {
+message GetMarketsCryptoResponse {
   repeated MarketsCryptoResponseItem result = 1;
 }
 
 // Stocks
 
-message MarketsStocksRequest {
+message GetMarketsStocksRequest {
   string country = 1;
   string name = 2;
   string code = 3;
@@ -34,7 +34,7 @@ message MarketsStocksResponseItem {
   string name = 3;
 }
 
-message MarketsStocksResponse {
+message GetMarketsStocksResponse {
   repeated MarketsStocksResponseItem result = 1;
 }
 
@@ -43,8 +43,8 @@ message MarketsStocksResponse {
  */
 service ExchangeService {
   // Returns a list of supported crypto markets
-  rpc GetMarketsCrypto(MarketsCryptoRequest) returns (MarketsCryptoResponse) {};
+  rpc GetMarketsCrypto(GetMarketsCryptoRequest) returns (GetMarketsCryptoResponse) {};
 
   // Returns a list of supported stock markets
-  rpc GetMarketsStocks(MarketsStocksRequest) returns (MarketsStocksResponse) {};
+  rpc GetMarketsStocks(GetMarketsStocksRequest) returns (GetMarketsStocksResponse) {};
 }

@@ -13,11 +13,11 @@ message ApiCalls {
     int32 usage = 2;
 }
 
-message ApiUsageRequest {
+message GetApiUsageRequest {
   string product = 1;
 }
 
-message ApiUsageResponse {
+message GetApiUsageResponse {
   repeated ApiUsageItem result = 1;
 }
 
@@ -26,5 +26,5 @@ message ApiUsageResponse {
  */
 service ApiUsageService {
   // Get a list of products with quota limit/usage
-  rpc GetApiUsage(ApiUsageRequest) returns (ApiUsageResponse) {};
+  rpc GetApiUsage(GetApiUsageRequest) returns (GetApiUsageResponse) {};
 }
