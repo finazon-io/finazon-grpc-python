@@ -1,7 +1,7 @@
 import logging
 import grpc
-from finazon_grpc_python.tickers_pb2_grpc import TickersServiceStub
-from finazon_grpc_python.tickers_pb2 import FindTickersCryptoRequest, FindTickerCryptoResponse
+from finazon_grpc_python.time_series_pb2_grpc import TimeSeriesServiceStub
+from finazon_grpc_python.time_series_pb2 import GetTimeSeriesRequest, GetTimeSeriesResponse
 
 
 api_url = 'grpc-latest.finazon.io:443'
@@ -15,11 +15,13 @@ credentials = grpc.composite_channel_credentials(channel_credentials, call_crede
 try:
     # Open gRPC channel and call method
     with grpc.secure_channel(api_url, credentials=credentials) as channel:
-        stub = TickersServiceStub(channel)
-        response: FindTickerCryptoResponse = stub.FindTickersCrypto(FindTickersCryptoRequest())
-        # Iterate over tickers response result
+        stub = TimeSeriesServiceStub(channel)
+        request = GetTimeSeriesRequest(ticker="AAPL", dataset="sip_non_pro")
+        response: GetTimeSeriesResponse = stub.GetTimeSeries(request)
+
+        # Iterate over time series response result
         for item in response.result:
-            print(f'Ticker: {item.ticker}, publisher: {item.publisher}')
+            print(item)
 # Catch gRPC exceptions
 except grpc.RpcError as e:
     if e.code() == grpc.StatusCode.UNAUTHENTICATED:
