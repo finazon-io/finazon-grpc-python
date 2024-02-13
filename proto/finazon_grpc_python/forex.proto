@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package finazon;
+
+message ForexTimeSeries {
+  int64 timestamp = 1;
+  double open = 2;
+  double close = 3;
+  double high = 4;
+  double low = 5;
+}
+
+message GetForexTimeSeriesRequest {
+  reserved 4;
+  reserved "date";
+
+  string ticker = 1;
+  string timezone = 2;
+  string interval = 3;
+  int64 start_at = 5;
+  int64 end_at = 6;
+  int32 page = 7;
+  int32 page_size = 8;
+  string order = 9;
+}
+
+message GetForexTimeSeriesResponse {
+  repeated ForexTimeSeries result = 1;
+}
+
+/**
+ * ForexService provide access to time series data
+ */
+service ForexService {
+  // Get time series data for any given ticker
+  rpc GetTimeSeries(GetForexTimeSeriesRequest) returns (GetForexTimeSeriesResponse) {};
+}
