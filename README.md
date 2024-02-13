@@ -141,9 +141,11 @@ The following table outlines the supported rpc calls:
 | BenzingaService      | GetNews                   | Returns the news articles from Benzinga            |
 | BenzingaService      | GetIPO                    | Returns IPO data from Benzinga                     |
 | BinanceService       | GetTimeSeries             | Get time series data without technical indicators  |
+| CryptoService        | GetTimeSeries             | Get time series data for any given ticker          |
 | DatasetsService      | GetDatasets               | Get a list of all datasets available at Finazon    |
 | ExchangeService      | GetMarketsCrypto          | Returns a list of supported crypto markets         |
 | ExchangeService      | GetMarketsStocks          | Returns a list of supported stock markets          |
+| ForexService         | GetTimeSeries             | Get time series data for any given ticker          |
 | PublisherService     | GetPublishers             | Get a list of all publishers available at Finazon  |
 | SecService           | GetFilings                | Real-time and historical access to all forms, filings, and exhibits directly from the SEC's EDGAR system |
 | SipService           | GetTrades                 | Returns detailed information on trades executed through the Securities Information Processor (SIP) |
