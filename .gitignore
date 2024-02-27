@@ -1,5 +1,4 @@
 dist
 .venv
-/finazon_grpc_python
 .idea
 __pycache__

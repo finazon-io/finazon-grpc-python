@@ -9,20 +9,20 @@ PIP:=${PYTHON_VIRTUAL_ENV}/bin/pip
 POETRY_VERSION=1.6.1
 POETRY=${PYTHON_VIRTUAL_ENV}/bin/poetry
 
+VERSION_TUPLE := $(subst ., ,$(VERSION))
+VERSION_MINOR := $(word 1,$(VERSION_TUPLE)).$(word 2,$(VERSION_TUPLE))
+
 .PHONY: install
 install:
 	@echo "Create python virual enviroment ..."
 	@python3 -m venv ${PYTHON_VIRTUAL_ENV}
 	@echo "Install package dependencies ..."
-	@mkdir -p ${PATH_DIST}
-	@touch ${PATH_DIST}/__init__.py
 	@${PIP} install poetry==${POETRY_VERSION}
 	@${POETRY} install
 
 .PHONY: generate
 generate:
 	make install
-	@mkdir -p ${PATH_DIST}
 	@${PYTHON} \
 	  -m grpc_tools.protoc \
 	  -I./proto \
@@ -35,6 +35,7 @@ generate:
 .PHONY: bump_version
 bump_version:
 	@sed -i 's/version = [^ ]*/version = "${VERSION}"/' ${PATH_THIS}/pyproject.toml
+	@sed -i 's/FINAZON_GRPC_VERSION = [^ ]*/FINAZON_GRPC_VERSION = "${VERSION_MINOR}"/' ${PATH_DIST}/common/settings.py
 
 .PHONY: build
 build:
@@ -56,4 +57,4 @@ publish_test:
 
 .PHONY: clean
 clean:
-	@rm -rf ${PYTHON_VIRTUAL_ENV} ${PATH_DIST}
+	@rm -rf ${PYTHON_VIRTUAL_ENV} ${PATH_DIST}/*.py*
