@@ -60,36 +60,19 @@ pip install finazon-grpc-python
 
 ### 3. Create `time_series.py` script
 ```python
-import logging
-import grpc
-from finazon_grpc_python.time_series_pb2_grpc import TimeSeriesServiceStub
-from finazon_grpc_python.time_series_pb2 import GetTimeSeriesRequest, GetTimeSeriesResponse
+from finazon_grpc_python.time_series_service import TimeSeriesService, GetTimeSeriesRequest
+from finazon_grpc_python.common.errors import FinazonGrpcRequestError
 
 
-api_url = 'grpc-latest.finazon.io:443'
-api_token = 'your_api_key'
-
-# Setup gRPC credentials
-call_credentials = grpc.access_token_call_credentials(api_token)
-channel_credentials = grpc.ssl_channel_credentials()
-credentials = grpc.composite_channel_credentials(channel_credentials, call_credentials)
+service = TimeSeriesService('your_api_key')
 
 try:
-    # Open gRPC channel and call method
-    with grpc.secure_channel(api_url, credentials=credentials) as channel:
-        stub = TimeSeriesServiceStub(channel)
-        request = GetTimeSeriesRequest(ticker="AAPL", dataset="sip_non_pro")
-        response: GetTimeSeriesResponse = stub.GetTimeSeries(request)
-
-        # Iterate over time series response result
-        for item in response.result:
-            print(item)
-# Catch gRPC exceptions
-except grpc.RpcError as e:
-    if e.code() == grpc.StatusCode.UNAUTHENTICATED:
-        logging.error('Invalid API key was provided')
-    else:
-        logging.error(f'gRPC exception: {e}')
+    request = GetTimeSeriesRequest(ticker='AAPL', dataset='sip_non_pro', interval='1h')
+    response = service.get_time_series(request)
+    print('Last 1h candle for AAPL:\n')
+    print(response.result[0])
+except FinazonGrpcRequestError as e:
+    print(f'Received error, code: {e.code}, message: {e.message}')
 
 ```
 
@@ -102,31 +85,17 @@ python3 time_series.py
 ```
 📝 Expected output:
 ```
-timestamp: 1698955140
-open: 177.57
-close: 177.57
-high: 177.78
-low: 177.55
-volume: 8330379
+Last 1h candle for AAPL:
 
-timestamp: 1698955080
-open: 177.58
-close: 177.572
-high: 177.605
-low: 177.5317
-volume: 398134
-
-timestamp: 1698955020
-open: 177.67
-close: 177.58
-high: 177.69
-low: 177.56
-volume: 439780
-
-...
+timestamp: 1709071200
+open: 183.03
+close: 182.985
+high: 183.05
+low: 182.93
+volume: 32163
 ```
 
-👀 Check the full example and other examples [here](https://github.com/finazon-io/finazon-grpc-python/tree/main/examples)
+👀 Check the full example and other examples [here](https://github.com/finazon-io/finazon-grpc-python/tree/main/finazon_grpc_python/examples)
 
 
 ## RPC support
@@ -167,16 +136,15 @@ The following table outlines the supported rpc calls:
 | TimeSeriesService    | GetTimeSeriesStoch        | Get time series data for Stoch technical indicator |
 | TradeService         | GetTrades                 | Returns general information on executed trades     |
 <!--rpc_table_boundary-->
-Here's how you can import `stub` and `request` objects:
+Here's how you can import `service` and `request` objects:
 
 ```python
-from finazon_grpc_python.service_name_pb2_grpc import ServiceNameServiceStub
-from finazon_grpc_python.service_name_pb2 import RpcNameRequest, RpcNameResponse
+from finazon_grpc_python.service_name_service import ServiceNameService, RpcNameRequest
 
 # ...
 
-stub = ServiceNameStub(channel)
-response = stub.RpcName(RpcNameRequest())
+service = ServiceNameService('your_api_key')
+response = service.rpc_name(RpcNameRequest())
 ```
 
 ## Documentation

@@ -1,0 +1,15 @@
+from finazon_grpc_python.{{ file.get_name_snake() }}_pb2_grpc import {{ service.name }}ServiceStub
+from finazon_grpc_python.{{ file.get_name_snake() }}_pb2 import {% for method in service.methods %} {{ method.request }}, {{ method.response }} {%if not loop.last %},{% endif %} {% endfor %}
+from finazon_grpc_python.common.client import FinazonGrpcClient
+
+
+class {{ service.name }}Service:
+    def __init__(self, api_token: str):
+      self.client = FinazonGrpcClient(api_token)
+
+    {% for method in service.methods %}
+    def {{ method.get_name_snake() }}(self, request: {{ method.request }}) -> {{ method.response }}:
+      return self.client.make_request( {{ service.name }}ServiceStub, '{{ method.name }}', request)
+
+    {% endfor %}
+
