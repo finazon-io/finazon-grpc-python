@@ -30,7 +30,9 @@ install:
 .PHONY: generate
 generate:
 	make install
+	@echo "Generate services ..."
 	@${PYTHON} ${GENERATOR_CMD}
+	@echo "Generate proto ..."
 	@${PYTHON} \
 	  -m grpc_tools.protoc \
 	  -I./proto \
