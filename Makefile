@@ -6,7 +6,7 @@ PATH_PROTO:=proto/finazon_grpc_python/*.proto
 PYTHON_VIRTUAL_ENV:=${PATH_THIS}/.venv
 PYTHON:=${PYTHON_VIRTUAL_ENV}/bin/python3
 PIP:=${PYTHON_VIRTUAL_ENV}/bin/pip
-POETRY_VERSION=1.6.1
+POETRY_VERSION=1.8.2
 POETRY=${PYTHON_VIRTUAL_ENV}/bin/poetry
 
 VERSION_TUPLE := $(subst ., ,$(VERSION))
@@ -68,3 +68,7 @@ publish_test:
 .PHONY: clean
 clean:
 	@rm -rf ${PYTHON_VIRTUAL_ENV} ${PATH_DIST}/*.py*
+
+.PHONY: export_requirements
+export_requirements:
+	@${POETRY} export --without-hashes --without dev -f requirements.txt -o requirements.txt

@@ -8,13 +8,17 @@ This is the official Python library for Finazon, offering access to:
 🔑 **API key** is essential. If you haven't got one yet, [sign up here](https://finazon.io/).
 
 ## Requirements
-Ensure you have Python 3.8 or later. 
+Ensure you have Python 3.9 or later. 
 
 ## Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Finazon Python gRPC Client library:
 ```shell
 pip install finazon-grpc-python
+```
+Installation with Pandas support:
+```bash
+pip install finazon-grpc-python[pandas]
 ```
 Or use [poetry](https://python-poetry.org/) package manager to add Finazon Python gRPC Client library to your project:
 ```shell
@@ -67,13 +71,13 @@ from finazon_grpc_python.common.errors import FinazonGrpcRequestError
 service = TimeSeriesService('your_api_key')
 
 try:
-    request = GetTimeSeriesRequest(ticker='AAPL', dataset='sip_non_pro', interval='1h')
+    request = GetTimeSeriesRequest(ticker='AAPL', dataset='sip_non_pro', interval='1h', page_size=10)
     response = service.get_time_series(request)
-    print('Last 1h candle for AAPL:\n')
-    print(response.result[0])
+    print('Last OHLCV data\n')
+    for item in response.result:
+        print(f'{item.timestamp} - {item.open}, {item.high}, {item.low}, {item.close}, {item.volume}')
 except FinazonGrpcRequestError as e:
     print(f'Received error, code: {e.code}, message: {e.message}')
-
 ```
 
 ### 4. Input your API key
@@ -85,14 +89,63 @@ python3 time_series.py
 ```
 📝 Expected output:
 ```
-Last 1h candle for AAPL:
+Last OHLCV data
 
-timestamp: 1709071200
-open: 183.03
-close: 182.985
-high: 183.05
-low: 182.93
-volume: 32163
+1709323200 - 179.9312, 179.97, 179.415, 179.695, 7701993.0
+1709319600 - 179.315, 180.22, 179.31, 180.005, 6668926.0
+1709316000 - 178.515, 179.39, 178.33, 179.32, 6103415.0
+1709312400 - 177.83, 179.07, 177.38, 178.524, 7184233.0
+1709308800 - 178.1857, 178.47, 177.72, 177.935, 7477704.0
+1709305200 - 179.7, 179.71, 177.67, 178.295, 13846621.0
+1709301600 - 180.2, 180.53, 179.06, 179.245, 6952951.0
+1709236800 - 180.225, 181.11, 179.57, 180.93, 12124375.0
+1709233200 - 180.115, 180.49, 179.86, 180.2, 5406568.0
+1709229600 - 180.15, 180.8, 179.68, 180.085, 5891427.0
+```
+
+## More examples
+
+### Get time-series data for AAPL and convert it to Pandas dataframe
+
+Don't forget to install the package with Pandas support
+```bash
+pip install finazon-grpc-python[pandas]
+```
+```python
+from finazon_grpc_python.time_series_service import TimeSeriesService, GetTimeSeriesRequest
+from finazon_grpc_python.common.errors import FinazonGrpcRequestError
+from finazon_grpc_python.common.utils import convert_response_to_pandas
+
+
+service = TimeSeriesService('your_api_key')
+
+try:
+    request = GetTimeSeriesRequest(ticker='AAPL', dataset='us_stocks_essential', interval='1h', page_size=50)
+    response = service.get_time_series(request)
+    df = convert_response_to_pandas(response)
+    print(df.describe())
+except FinazonGrpcRequestError as e:
+    print(f'Received error, code: {e.code}, message: {e.message}')
+```
+
+### Get Moving average with period 100 (MA 100) for AAPL
+
+```python
+from finazon_grpc_python.time_series_service import TimeSeriesService, GetTimeSeriesMaRequest, GetTimeSeriesRequest
+from finazon_grpc_python.common.errors import FinazonGrpcRequestError
+
+
+service = TimeSeriesService('your_api_key')
+
+try:
+    request = GetTimeSeriesMaRequest(
+        time_series=GetTimeSeriesRequest(ticker='AAPL', interval='1h', dataset='sip_non_pro', page_size=10),
+        time_period=100,
+    )
+    response = service.get_time_series_ma(request)
+    print(response.result)
+except FinazonGrpcRequestError as e:
+    print(f'Received error, code: {e.code}, message: {e.message}')
 ```
 
 👀 Check the full example and other examples [here](https://github.com/finazon-io/finazon-grpc-python/tree/main/finazon_grpc_python/examples)
