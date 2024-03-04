@@ -44,7 +44,7 @@ generate:
 
 .PHONY: bump_version
 bump_version:
-	@sed -i 's/version = [^ ]*/version = "${VERSION}"/' ${PATH_THIS}/pyproject.toml
+	@sed -i 's/^version = [^ ]*/version = "${VERSION}"/' ${PATH_THIS}/pyproject.toml
 	@sed -i 's/FINAZON_GRPC_VERSION = [^ ]*/FINAZON_GRPC_VERSION = "${VERSION_GRPC}"/' ${PATH_DIST}/common/settings.py
 
 .PHONY: build
