@@ -27,6 +27,7 @@ message GetTradesRequest {
   string composite_figi = 16;
   string share_figi = 17;
   string lei = 18;
+  string dataset = 19;
 }
 
 message GetTradesResponse {

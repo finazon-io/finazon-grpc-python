@@ -2,7 +2,7 @@
 name = "finazon-grpc-python"
 packages = [{include = "finazon_grpc_python"}]
 include = ["requirements.txt", "finazon_grpc_python/*.p*"]
-version = "1.0.136.2"
+version = "1.0.141"
 description = "Finazon gRPC client library for Python"
 authors = ["Finazon <team@finazon.io>"]
 readme = "README.md"

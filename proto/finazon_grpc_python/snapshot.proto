@@ -15,6 +15,7 @@ message GetSnapshotRequest {
   string composite_figi = 10;
   string share_figi = 11;
   string lei = 12;
+  string dataset = 13;
 }
 
 message SnapshotOhlcv {

@@ -59,6 +59,7 @@ class GetTradesRequest(google.protobuf.message.Message):
     COMPOSITE_FIGI_FIELD_NUMBER: builtins.int
     SHARE_FIGI_FIELD_NUMBER: builtins.int
     LEI_FIELD_NUMBER: builtins.int
+    DATASET_FIELD_NUMBER: builtins.int
     publisher: builtins.str
     ticker: builtins.str
     mic: builtins.str
@@ -77,6 +78,7 @@ class GetTradesRequest(google.protobuf.message.Message):
     composite_figi: builtins.str
     share_figi: builtins.str
     lei: builtins.str
+    dataset: builtins.str
     def __init__(
         self,
         *,
@@ -98,8 +100,9 @@ class GetTradesRequest(google.protobuf.message.Message):
         composite_figi: builtins.str = ...,
         share_figi: builtins.str = ...,
         lei: builtins.str = ...,
+        dataset: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cik", b"cik", "composite_figi", b"composite_figi", "country", b"country", "cqs", b"cqs", "cusip", b"cusip", "end_at", b"end_at", "isin", b"isin", "lei", b"lei", "market", b"market", "mic", b"mic", "order", b"order", "page", b"page", "page_size", b"page_size", "publisher", b"publisher", "share_figi", b"share_figi", "start_at", b"start_at", "tape", b"tape", "ticker", b"ticker"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cik", b"cik", "composite_figi", b"composite_figi", "country", b"country", "cqs", b"cqs", "cusip", b"cusip", "dataset", b"dataset", "end_at", b"end_at", "isin", b"isin", "lei", b"lei", "market", b"market", "mic", b"mic", "order", b"order", "page", b"page", "page_size", b"page_size", "publisher", b"publisher", "share_figi", b"share_figi", "start_at", b"start_at", "tape", b"tape", "ticker", b"ticker"]) -> None: ...
 
 global___GetTradesRequest = GetTradesRequest
 

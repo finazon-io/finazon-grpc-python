@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!finazon_grpc_python/tickers.proto\x12\x07\x66inazon\"p\n\x10TickerStocksInfo\x12\x0e\n\x06ticker\x18\x01 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x02 \x01(\t\x12\x10\n\x08\x63urrency\x18\x03 \x01(\t\x12\x11\n\tpublisher\x18\x04 \x01(\t\x12\x16\n\x0epublisher_name\x18\x05 \x01(\t\"\xec\x01\n\x18\x46indTickersStocksRequest\x12\x0e\n\x06ticker\x18\x01 \x01(\t\x12\x11\n\tpublisher\x18\x02 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x03 \x01(\t\x12\x0b\n\x03mic\x18\x04 \x01(\t\x12\x0c\n\x04page\x18\x05 \x01(\x05\x12\x11\n\tpage_size\x18\x06 \x01(\x05\x12\x0b\n\x03\x63qs\x18\x0b \x01(\t\x12\x0b\n\x03\x63ik\x18\x0c \x01(\t\x12\r\n\x05\x63usip\x18\r \x01(\t\x12\x0c\n\x04isin\x18\x0e \x01(\t\x12\x16\n\x0e\x63omposite_figi\x18\x0f \x01(\t\x12\x12\n\nshare_figi\x18\x10 \x01(\t\x12\x0b\n\x03lei\x18\x11 \x01(\t\"E\n\x18\x46indTickerStocksResponse\x12)\n\x06result\x18\x01 \x03(\x0b\x32\x19.finazon.TickerStocksInfo\"M\n\x10TickerCryptoInfo\x12\x0e\n\x06ticker\x18\x01 \x01(\t\x12\x11\n\tpublisher\x18\x02 \x01(\t\x12\x16\n\x0epublisher_name\x18\x03 \x01(\t\"n\n\x18\x46indTickersCryptoRequest\x12\x0e\n\x06ticker\x18\x01 \x01(\t\x12\x11\n\tpublisher\x18\x02 \x01(\t\x12\x0e\n\x06market\x18\x03 \x01(\t\x12\x0c\n\x04page\x18\x04 \x01(\x05\x12\x11\n\tpage_size\x18\x05 \x01(\x05\"E\n\x18\x46indTickerCryptoResponse\x12)\n\x06result\x18\x01 \x03(\x0b\x32\x19.finazon.TickerCryptoInfo\"!\n\x0fTickerForexInfo\x12\x0e\n\x06ticker\x18\x01 \x01(\t\"J\n\x17\x46indTickersForexRequest\x12\x0e\n\x06ticker\x18\x01 \x01(\t\x12\x0c\n\x04page\x18\x02 \x01(\x05\x12\x11\n\tpage_size\x18\x03 \x01(\x05\"C\n\x17\x46indTickerForexResponse\x12(\n\x06result\x18\x01 \x03(\x0b\x32\x18.finazon.TickerForexInfo\"\xa9\x01\n\x0cTickerUSInfo\x12\x0e\n\x06ticker\x18\x01 \x01(\t\x12\x10\n\x08\x63urrency\x18\x02 \x01(\t\x12\x10\n\x08security\x18\x03 \x01(\t\x12\x0b\n\x03mic\x18\x04 \x01(\t\x12\x12\n\nasset_type\x18\x05 \x01(\t\x12\x0b\n\x03\x63ik\x18\x07 \x01(\t\x12\x16\n\x0e\x63omposite_figi\x18\n \x01(\t\x12\x12\n\nshare_figi\x18\x0b \x01(\t\x12\x0b\n\x03lei\x18\x0c \x01(\t\"\xc3\x01\n\x13\x46indTickerUSRequest\x12\x0e\n\x06ticker\x18\x01 \x01(\t\x12\x0b\n\x03mic\x18\x02 \x01(\t\x12\x0c\n\x04page\x18\x03 \x01(\x05\x12\x11\n\tpage_size\x18\x04 \x01(\x05\x12\x0b\n\x03\x63qs\x18\x05 \x01(\t\x12\x0b\n\x03\x63ik\x18\x06 \x01(\t\x12\r\n\x05\x63usip\x18\x07 \x01(\t\x12\x0c\n\x04isin\x18\x08 \x01(\t\x12\x16\n\x0e\x63omposite_figi\x18\t \x01(\t\x12\x12\n\nshare_figi\x18\n \x01(\t\x12\x0b\n\x03lei\x18\x0b \x01(\t\"=\n\x14\x46indTickerUSResponse\x12%\n\x06result\x18\x01 \x03(\x0b\x32\x15.finazon.TickerUSInfo2\xf3\x02\n\x0eTickersService\x12[\n\x11\x46indTickersStocks\x12!.finazon.FindTickersStocksRequest\x1a!.finazon.FindTickerStocksResponse\"\x00\x12[\n\x11\x46indTickersCrypto\x12!.finazon.FindTickersCryptoRequest\x1a!.finazon.FindTickerCryptoResponse\"\x00\x12X\n\x10\x46indTickersForex\x12 .finazon.FindTickersForexRequest\x1a .finazon.FindTickerForexResponse\"\x00\x12M\n\x0c\x46indTickerUS\x12\x1c.finazon.FindTickerUSRequest\x1a\x1d.finazon.FindTickerUSResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!finazon_grpc_python/tickers.proto\x12\x07\x66inazon\"p\n\x10TickerStocksInfo\x12\x0e\n\x06ticker\x18\x01 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x02 \x01(\t\x12\x10\n\x08\x63urrency\x18\x03 \x01(\t\x12\x11\n\tpublisher\x18\x04 \x01(\t\x12\x16\n\x0epublisher_name\x18\x05 \x01(\t\"\xfd\x01\n\x18\x46indTickersStocksRequest\x12\x0e\n\x06ticker\x18\x01 \x01(\t\x12\x11\n\tpublisher\x18\x02 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x03 \x01(\t\x12\x0b\n\x03mic\x18\x04 \x01(\t\x12\x0c\n\x04page\x18\x05 \x01(\x05\x12\x11\n\tpage_size\x18\x06 \x01(\x05\x12\x0b\n\x03\x63qs\x18\x0b \x01(\t\x12\x0b\n\x03\x63ik\x18\x0c \x01(\t\x12\r\n\x05\x63usip\x18\r \x01(\t\x12\x0c\n\x04isin\x18\x0e \x01(\t\x12\x16\n\x0e\x63omposite_figi\x18\x0f \x01(\t\x12\x12\n\nshare_figi\x18\x10 \x01(\t\x12\x0b\n\x03lei\x18\x11 \x01(\t\x12\x0f\n\x07\x64\x61taset\x18\x12 \x01(\t\"E\n\x18\x46indTickerStocksResponse\x12)\n\x06result\x18\x01 \x03(\x0b\x32\x19.finazon.TickerStocksInfo\"M\n\x10TickerCryptoInfo\x12\x0e\n\x06ticker\x18\x01 \x01(\t\x12\x11\n\tpublisher\x18\x02 \x01(\t\x12\x16\n\x0epublisher_name\x18\x03 \x01(\t\"n\n\x18\x46indTickersCryptoRequest\x12\x0e\n\x06ticker\x18\x01 \x01(\t\x12\x11\n\tpublisher\x18\x02 \x01(\t\x12\x0e\n\x06market\x18\x03 \x01(\t\x12\x0c\n\x04page\x18\x04 \x01(\x05\x12\x11\n\tpage_size\x18\x05 \x01(\x05\"E\n\x18\x46indTickerCryptoResponse\x12)\n\x06result\x18\x01 \x03(\x0b\x32\x19.finazon.TickerCryptoInfo\"!\n\x0fTickerForexInfo\x12\x0e\n\x06ticker\x18\x01 \x01(\t\"J\n\x17\x46indTickersForexRequest\x12\x0e\n\x06ticker\x18\x01 \x01(\t\x12\x0c\n\x04page\x18\x02 \x01(\x05\x12\x11\n\tpage_size\x18\x03 \x01(\x05\"C\n\x17\x46indTickerForexResponse\x12(\n\x06result\x18\x01 \x03(\x0b\x32\x18.finazon.TickerForexInfo\"\xa9\x01\n\x0cTickerUSInfo\x12\x0e\n\x06ticker\x18\x01 \x01(\t\x12\x10\n\x08\x63urrency\x18\x02 \x01(\t\x12\x10\n\x08security\x18\x03 \x01(\t\x12\x0b\n\x03mic\x18\x04 \x01(\t\x12\x12\n\nasset_type\x18\x05 \x01(\t\x12\x0b\n\x03\x63ik\x18\x07 \x01(\t\x12\x16\n\x0e\x63omposite_figi\x18\n \x01(\t\x12\x12\n\nshare_figi\x18\x0b \x01(\t\x12\x0b\n\x03lei\x18\x0c \x01(\t\"\xc3\x01\n\x13\x46indTickerUSRequest\x12\x0e\n\x06ticker\x18\x01 \x01(\t\x12\x0b\n\x03mic\x18\x02 \x01(\t\x12\x0c\n\x04page\x18\x03 \x01(\x05\x12\x11\n\tpage_size\x18\x04 \x01(\x05\x12\x0b\n\x03\x63qs\x18\x05 \x01(\t\x12\x0b\n\x03\x63ik\x18\x06 \x01(\t\x12\r\n\x05\x63usip\x18\x07 \x01(\t\x12\x0c\n\x04isin\x18\x08 \x01(\t\x12\x16\n\x0e\x63omposite_figi\x18\t \x01(\t\x12\x12\n\nshare_figi\x18\n \x01(\t\x12\x0b\n\x03lei\x18\x0b \x01(\t\"=\n\x14\x46indTickerUSResponse\x12%\n\x06result\x18\x01 \x03(\x0b\x32\x15.finazon.TickerUSInfo2\xf3\x02\n\x0eTickersService\x12[\n\x11\x46indTickersStocks\x12!.finazon.FindTickersStocksRequest\x1a!.finazon.FindTickerStocksResponse\"\x00\x12[\n\x11\x46indTickersCrypto\x12!.finazon.FindTickersCryptoRequest\x1a!.finazon.FindTickerCryptoResponse\"\x00\x12X\n\x10\x46indTickersForex\x12 .finazon.FindTickersForexRequest\x1a .finazon.FindTickerForexResponse\"\x00\x12M\n\x0c\x46indTickerUS\x12\x1c.finazon.FindTickerUSRequest\x1a\x1d.finazon.FindTickerUSResponse\"\x00\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,27 +24,27 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_TICKERSTOCKSINFO']._serialized_start=46
   _globals['_TICKERSTOCKSINFO']._serialized_end=158
   _globals['_FINDTICKERSSTOCKSREQUEST']._serialized_start=161
-  _globals['_FINDTICKERSSTOCKSREQUEST']._serialized_end=397
-  _globals['_FINDTICKERSTOCKSRESPONSE']._serialized_start=399
-  _globals['_FINDTICKERSTOCKSRESPONSE']._serialized_end=468
-  _globals['_TICKERCRYPTOINFO']._serialized_start=470
-  _globals['_TICKERCRYPTOINFO']._serialized_end=547
-  _globals['_FINDTICKERSCRYPTOREQUEST']._serialized_start=549
-  _globals['_FINDTICKERSCRYPTOREQUEST']._serialized_end=659
-  _globals['_FINDTICKERCRYPTORESPONSE']._serialized_start=661
-  _globals['_FINDTICKERCRYPTORESPONSE']._serialized_end=730
-  _globals['_TICKERFOREXINFO']._serialized_start=732
-  _globals['_TICKERFOREXINFO']._serialized_end=765
-  _globals['_FINDTICKERSFOREXREQUEST']._serialized_start=767
-  _globals['_FINDTICKERSFOREXREQUEST']._serialized_end=841
-  _globals['_FINDTICKERFOREXRESPONSE']._serialized_start=843
-  _globals['_FINDTICKERFOREXRESPONSE']._serialized_end=910
-  _globals['_TICKERUSINFO']._serialized_start=913
-  _globals['_TICKERUSINFO']._serialized_end=1082
-  _globals['_FINDTICKERUSREQUEST']._serialized_start=1085
-  _globals['_FINDTICKERUSREQUEST']._serialized_end=1280
-  _globals['_FINDTICKERUSRESPONSE']._serialized_start=1282
-  _globals['_FINDTICKERUSRESPONSE']._serialized_end=1343
-  _globals['_TICKERSSERVICE']._serialized_start=1346
-  _globals['_TICKERSSERVICE']._serialized_end=1717
+  _globals['_FINDTICKERSSTOCKSREQUEST']._serialized_end=414
+  _globals['_FINDTICKERSTOCKSRESPONSE']._serialized_start=416
+  _globals['_FINDTICKERSTOCKSRESPONSE']._serialized_end=485
+  _globals['_TICKERCRYPTOINFO']._serialized_start=487
+  _globals['_TICKERCRYPTOINFO']._serialized_end=564
+  _globals['_FINDTICKERSCRYPTOREQUEST']._serialized_start=566
+  _globals['_FINDTICKERSCRYPTOREQUEST']._serialized_end=676
+  _globals['_FINDTICKERCRYPTORESPONSE']._serialized_start=678
+  _globals['_FINDTICKERCRYPTORESPONSE']._serialized_end=747
+  _globals['_TICKERFOREXINFO']._serialized_start=749
+  _globals['_TICKERFOREXINFO']._serialized_end=782
+  _globals['_FINDTICKERSFOREXREQUEST']._serialized_start=784
+  _globals['_FINDTICKERSFOREXREQUEST']._serialized_end=858
+  _globals['_FINDTICKERFOREXRESPONSE']._serialized_start=860
+  _globals['_FINDTICKERFOREXRESPONSE']._serialized_end=927
+  _globals['_TICKERUSINFO']._serialized_start=930
+  _globals['_TICKERUSINFO']._serialized_end=1099
+  _globals['_FINDTICKERUSREQUEST']._serialized_start=1102
+  _globals['_FINDTICKERUSREQUEST']._serialized_end=1297
+  _globals['_FINDTICKERUSRESPONSE']._serialized_start=1299
+  _globals['_FINDTICKERUSRESPONSE']._serialized_end=1360
+  _globals['_TICKERSSERVICE']._serialized_start=1363
+  _globals['_TICKERSSERVICE']._serialized_end=1734
 # @@protoc_insertion_point(module_scope)

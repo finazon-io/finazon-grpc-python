@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"finazon_grpc_python/snapshot.proto\x12\x07\x66inazon\"\xd5\x01\n\x12GetSnapshotRequest\x12\x11\n\tpublisher\x18\x01 \x01(\t\x12\x0e\n\x06ticker\x18\x02 \x01(\t\x12\x0e\n\x06market\x18\x03 \x01(\t\x12\x0b\n\x03mic\x18\x04 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x05 \x01(\t\x12\x0b\n\x03\x63qs\x18\x06 \x01(\t\x12\x0b\n\x03\x63ik\x18\x07 \x01(\t\x12\r\n\x05\x63usip\x18\x08 \x01(\t\x12\x0c\n\x04isin\x18\t \x01(\t\x12\x16\n\x0e\x63omposite_figi\x18\n \x01(\t\x12\x12\n\nshare_figi\x18\x0b \x01(\t\x12\x0b\n\x03lei\x18\x0c \x01(\t\"W\n\rSnapshotOhlcv\x12\x0c\n\x04open\x18\x01 \x01(\x01\x12\x0c\n\x04high\x18\x02 \x01(\x01\x12\x0b\n\x03low\x18\x03 \x01(\x01\x12\r\n\x05\x63lose\x18\x04 \x01(\x01\x12\x0e\n\x06volume\x18\x05 \x01(\x01\"D\n\x11SnapshotLastTrade\x12\x10\n\x08\x65vent_at\x18\x01 \x01(\x03\x12\r\n\x05price\x18\x02 \x01(\x01\x12\x0e\n\x06shares\x18\x03 \x01(\x03\"\x96\x01\n\x18SnapshotLastFiftyTwoWeek\x12\x0c\n\x04high\x18\x01 \x01(\x01\x12\x0f\n\x07high_at\x18\x02 \x01(\x03\x12\x0b\n\x03low\x18\x03 \x01(\x01\x12\x0e\n\x06low_at\x18\x04 \x01(\x03\x12\x0e\n\x06\x63hange\x18\x05 \x01(\x01\x12\x16\n\x0e\x63hange_percent\x18\x06 \x01(\x01\x12\x16\n\x0e\x61verage_volume\x18\x07 \x01(\x03\"g\n\x0eSnapshotChange\x12\x1a\n\x12\x64\x61y_change_percent\x18\x01 \x01(\x01\x12\x1b\n\x13week_change_percent\x18\x02 \x01(\x01\x12\x1c\n\x14month_change_percent\x18\x03 \x01(\x01\"\xb2\x02\n\x13GetSnapshotResponse\x12(\n\x08last_day\x18\x01 \x01(\x0b\x32\x16.finazon.SnapshotOhlcv\x12*\n\nlast_month\x18\x02 \x01(\x0b\x32\x16.finazon.SnapshotOhlcv\x12.\n\nlast_trade\x18\x03 \x01(\x0b\x32\x1a.finazon.SnapshotLastTrade\x12,\n\x0cprevious_day\x18\x04 \x01(\x0b\x32\x16.finazon.SnapshotOhlcv\x12>\n\x13last_fifty_two_week\x18\x05 \x01(\x0b\x32!.finazon.SnapshotLastFiftyTwoWeek\x12\'\n\x06\x63hange\x18\x06 \x01(\x0b\x32\x17.finazon.SnapshotChange2]\n\x0fSnapshotService\x12J\n\x0bGetSnapshot\x12\x1b.finazon.GetSnapshotRequest\x1a\x1c.finazon.GetSnapshotResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"finazon_grpc_python/snapshot.proto\x12\x07\x66inazon\"\xe6\x01\n\x12GetSnapshotRequest\x12\x11\n\tpublisher\x18\x01 \x01(\t\x12\x0e\n\x06ticker\x18\x02 \x01(\t\x12\x0e\n\x06market\x18\x03 \x01(\t\x12\x0b\n\x03mic\x18\x04 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x05 \x01(\t\x12\x0b\n\x03\x63qs\x18\x06 \x01(\t\x12\x0b\n\x03\x63ik\x18\x07 \x01(\t\x12\r\n\x05\x63usip\x18\x08 \x01(\t\x12\x0c\n\x04isin\x18\t \x01(\t\x12\x16\n\x0e\x63omposite_figi\x18\n \x01(\t\x12\x12\n\nshare_figi\x18\x0b \x01(\t\x12\x0b\n\x03lei\x18\x0c \x01(\t\x12\x0f\n\x07\x64\x61taset\x18\r \x01(\t\"W\n\rSnapshotOhlcv\x12\x0c\n\x04open\x18\x01 \x01(\x01\x12\x0c\n\x04high\x18\x02 \x01(\x01\x12\x0b\n\x03low\x18\x03 \x01(\x01\x12\r\n\x05\x63lose\x18\x04 \x01(\x01\x12\x0e\n\x06volume\x18\x05 \x01(\x01\"D\n\x11SnapshotLastTrade\x12\x10\n\x08\x65vent_at\x18\x01 \x01(\x03\x12\r\n\x05price\x18\x02 \x01(\x01\x12\x0e\n\x06shares\x18\x03 \x01(\x03\"\x96\x01\n\x18SnapshotLastFiftyTwoWeek\x12\x0c\n\x04high\x18\x01 \x01(\x01\x12\x0f\n\x07high_at\x18\x02 \x01(\x03\x12\x0b\n\x03low\x18\x03 \x01(\x01\x12\x0e\n\x06low_at\x18\x04 \x01(\x03\x12\x0e\n\x06\x63hange\x18\x05 \x01(\x01\x12\x16\n\x0e\x63hange_percent\x18\x06 \x01(\x01\x12\x16\n\x0e\x61verage_volume\x18\x07 \x01(\x03\"g\n\x0eSnapshotChange\x12\x1a\n\x12\x64\x61y_change_percent\x18\x01 \x01(\x01\x12\x1b\n\x13week_change_percent\x18\x02 \x01(\x01\x12\x1c\n\x14month_change_percent\x18\x03 \x01(\x01\"\xb2\x02\n\x13GetSnapshotResponse\x12(\n\x08last_day\x18\x01 \x01(\x0b\x32\x16.finazon.SnapshotOhlcv\x12*\n\nlast_month\x18\x02 \x01(\x0b\x32\x16.finazon.SnapshotOhlcv\x12.\n\nlast_trade\x18\x03 \x01(\x0b\x32\x1a.finazon.SnapshotLastTrade\x12,\n\x0cprevious_day\x18\x04 \x01(\x0b\x32\x16.finazon.SnapshotOhlcv\x12>\n\x13last_fifty_two_week\x18\x05 \x01(\x0b\x32!.finazon.SnapshotLastFiftyTwoWeek\x12\'\n\x06\x63hange\x18\x06 \x01(\x0b\x32\x17.finazon.SnapshotChange2]\n\x0fSnapshotService\x12J\n\x0bGetSnapshot\x12\x1b.finazon.GetSnapshotRequest\x1a\x1c.finazon.GetSnapshotResponse\"\x00\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -22,17 +22,17 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _globals['_GETSNAPSHOTREQUEST']._serialized_start=48
-  _globals['_GETSNAPSHOTREQUEST']._serialized_end=261
-  _globals['_SNAPSHOTOHLCV']._serialized_start=263
-  _globals['_SNAPSHOTOHLCV']._serialized_end=350
-  _globals['_SNAPSHOTLASTTRADE']._serialized_start=352
-  _globals['_SNAPSHOTLASTTRADE']._serialized_end=420
-  _globals['_SNAPSHOTLASTFIFTYTWOWEEK']._serialized_start=423
-  _globals['_SNAPSHOTLASTFIFTYTWOWEEK']._serialized_end=573
-  _globals['_SNAPSHOTCHANGE']._serialized_start=575
-  _globals['_SNAPSHOTCHANGE']._serialized_end=678
-  _globals['_GETSNAPSHOTRESPONSE']._serialized_start=681
-  _globals['_GETSNAPSHOTRESPONSE']._serialized_end=987
-  _globals['_SNAPSHOTSERVICE']._serialized_start=989
-  _globals['_SNAPSHOTSERVICE']._serialized_end=1082
+  _globals['_GETSNAPSHOTREQUEST']._serialized_end=278
+  _globals['_SNAPSHOTOHLCV']._serialized_start=280
+  _globals['_SNAPSHOTOHLCV']._serialized_end=367
+  _globals['_SNAPSHOTLASTTRADE']._serialized_start=369
+  _globals['_SNAPSHOTLASTTRADE']._serialized_end=437
+  _globals['_SNAPSHOTLASTFIFTYTWOWEEK']._serialized_start=440
+  _globals['_SNAPSHOTLASTFIFTYTWOWEEK']._serialized_end=590
+  _globals['_SNAPSHOTCHANGE']._serialized_start=592
+  _globals['_SNAPSHOTCHANGE']._serialized_end=695
+  _globals['_GETSNAPSHOTRESPONSE']._serialized_start=698
+  _globals['_GETSNAPSHOTRESPONSE']._serialized_end=1004
+  _globals['_SNAPSHOTSERVICE']._serialized_start=1006
+  _globals['_SNAPSHOTSERVICE']._serialized_end=1099
 # @@protoc_insertion_point(module_scope)

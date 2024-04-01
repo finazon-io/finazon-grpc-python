@@ -63,6 +63,7 @@ class FindTickersStocksRequest(google.protobuf.message.Message):
     COMPOSITE_FIGI_FIELD_NUMBER: builtins.int
     SHARE_FIGI_FIELD_NUMBER: builtins.int
     LEI_FIELD_NUMBER: builtins.int
+    DATASET_FIELD_NUMBER: builtins.int
     ticker: builtins.str
     publisher: builtins.str
     country: builtins.str
@@ -76,6 +77,7 @@ class FindTickersStocksRequest(google.protobuf.message.Message):
     composite_figi: builtins.str
     share_figi: builtins.str
     lei: builtins.str
+    dataset: builtins.str
     def __init__(
         self,
         *,
@@ -92,8 +94,9 @@ class FindTickersStocksRequest(google.protobuf.message.Message):
         composite_figi: builtins.str = ...,
         share_figi: builtins.str = ...,
         lei: builtins.str = ...,
+        dataset: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cik", b"cik", "composite_figi", b"composite_figi", "country", b"country", "cqs", b"cqs", "cusip", b"cusip", "isin", b"isin", "lei", b"lei", "mic", b"mic", "page", b"page", "page_size", b"page_size", "publisher", b"publisher", "share_figi", b"share_figi", "ticker", b"ticker"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cik", b"cik", "composite_figi", b"composite_figi", "country", b"country", "cqs", b"cqs", "cusip", b"cusip", "dataset", b"dataset", "isin", b"isin", "lei", b"lei", "mic", b"mic", "page", b"page", "page_size", b"page_size", "publisher", b"publisher", "share_figi", b"share_figi", "ticker", b"ticker"]) -> None: ...
 
 global___FindTickersStocksRequest = FindTickersStocksRequest
 

@@ -27,6 +27,7 @@ message FindTickersStocksRequest {
     string composite_figi = 15;
     string share_figi = 16;
     string lei = 17;
+    string dataset = 18;
 }
 
 message FindTickerStocksResponse {
