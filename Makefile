@@ -54,14 +54,14 @@ build:
 
 .PHONY: publish
 publish:
-	@${POETRY} config pypi-token.pypi ${PYPI_TOKEN}
+	@${POETRY} config pypi-token.pypi ${GRPC_PYPI_TOKEN}
 	make build
 	@${POETRY} publish
 
 .PHONY: publish_test
 publish_test:
 	@${POETRY} config repositories.test-pypi https://test.pypi.org/legacy/
-	@${POETRY} config pypi-token.test-pypi ${PYPI_TOKEN}
+	@${POETRY} config pypi-token.test-pypi ${GRPC_PYPI_TOKEN}
 	make build
 	@${POETRY} publish -r test-pypi
 
