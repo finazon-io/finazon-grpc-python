@@ -12,8 +12,8 @@ message TimeSeries {
 }
 
 message GetTimeSeriesRequest {
-    reserved 9;
-    reserved "date";
+    reserved 7, 9;
+    reserved "timezone", "date";
 
     string publisher = 1;
     string ticker = 2;
@@ -21,7 +21,6 @@ message GetTimeSeriesRequest {
     string mic = 4;
     string country = 5;
     string instrument_type = 6;
-    string timezone = 7;
     string interval = 8;
     int64 start_at = 10;
     int64 end_at = 11;
