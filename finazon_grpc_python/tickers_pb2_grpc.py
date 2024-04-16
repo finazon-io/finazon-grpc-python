@@ -19,22 +19,22 @@ class TickersServiceStub(object):
         self.FindTickersStocks = channel.unary_unary(
                 '/finazon.TickersService/FindTickersStocks',
                 request_serializer=finazon__grpc__python_dot_tickers__pb2.FindTickersStocksRequest.SerializeToString,
-                response_deserializer=finazon__grpc__python_dot_tickers__pb2.FindTickerStocksResponse.FromString,
+                response_deserializer=finazon__grpc__python_dot_tickers__pb2.FindTickersStocksResponse.FromString,
                 )
         self.FindTickersCrypto = channel.unary_unary(
                 '/finazon.TickersService/FindTickersCrypto',
                 request_serializer=finazon__grpc__python_dot_tickers__pb2.FindTickersCryptoRequest.SerializeToString,
-                response_deserializer=finazon__grpc__python_dot_tickers__pb2.FindTickerCryptoResponse.FromString,
+                response_deserializer=finazon__grpc__python_dot_tickers__pb2.FindTickersCryptoResponse.FromString,
                 )
         self.FindTickersForex = channel.unary_unary(
                 '/finazon.TickersService/FindTickersForex',
                 request_serializer=finazon__grpc__python_dot_tickers__pb2.FindTickersForexRequest.SerializeToString,
-                response_deserializer=finazon__grpc__python_dot_tickers__pb2.FindTickerForexResponse.FromString,
+                response_deserializer=finazon__grpc__python_dot_tickers__pb2.FindTickersForexResponse.FromString,
                 )
-        self.FindTickerUS = channel.unary_unary(
-                '/finazon.TickersService/FindTickerUS',
-                request_serializer=finazon__grpc__python_dot_tickers__pb2.FindTickerUSRequest.SerializeToString,
-                response_deserializer=finazon__grpc__python_dot_tickers__pb2.FindTickerUSResponse.FromString,
+        self.FindTickersUS = channel.unary_unary(
+                '/finazon.TickersService/FindTickersUS',
+                request_serializer=finazon__grpc__python_dot_tickers__pb2.FindTickersUSRequest.SerializeToString,
+                response_deserializer=finazon__grpc__python_dot_tickers__pb2.FindTickersUSResponse.FromString,
                 )
 
 
@@ -64,7 +64,7 @@ class TickersServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def FindTickerUS(self, request, context):
+    def FindTickersUS(self, request, context):
         """This API call returns an array of US tickers available at Finazon Data API. This list is updated daily.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -77,22 +77,22 @@ def add_TickersServiceServicer_to_server(servicer, server):
             'FindTickersStocks': grpc.unary_unary_rpc_method_handler(
                     servicer.FindTickersStocks,
                     request_deserializer=finazon__grpc__python_dot_tickers__pb2.FindTickersStocksRequest.FromString,
-                    response_serializer=finazon__grpc__python_dot_tickers__pb2.FindTickerStocksResponse.SerializeToString,
+                    response_serializer=finazon__grpc__python_dot_tickers__pb2.FindTickersStocksResponse.SerializeToString,
             ),
             'FindTickersCrypto': grpc.unary_unary_rpc_method_handler(
                     servicer.FindTickersCrypto,
                     request_deserializer=finazon__grpc__python_dot_tickers__pb2.FindTickersCryptoRequest.FromString,
-                    response_serializer=finazon__grpc__python_dot_tickers__pb2.FindTickerCryptoResponse.SerializeToString,
+                    response_serializer=finazon__grpc__python_dot_tickers__pb2.FindTickersCryptoResponse.SerializeToString,
             ),
             'FindTickersForex': grpc.unary_unary_rpc_method_handler(
                     servicer.FindTickersForex,
                     request_deserializer=finazon__grpc__python_dot_tickers__pb2.FindTickersForexRequest.FromString,
-                    response_serializer=finazon__grpc__python_dot_tickers__pb2.FindTickerForexResponse.SerializeToString,
+                    response_serializer=finazon__grpc__python_dot_tickers__pb2.FindTickersForexResponse.SerializeToString,
             ),
-            'FindTickerUS': grpc.unary_unary_rpc_method_handler(
-                    servicer.FindTickerUS,
-                    request_deserializer=finazon__grpc__python_dot_tickers__pb2.FindTickerUSRequest.FromString,
-                    response_serializer=finazon__grpc__python_dot_tickers__pb2.FindTickerUSResponse.SerializeToString,
+            'FindTickersUS': grpc.unary_unary_rpc_method_handler(
+                    servicer.FindTickersUS,
+                    request_deserializer=finazon__grpc__python_dot_tickers__pb2.FindTickersUSRequest.FromString,
+                    response_serializer=finazon__grpc__python_dot_tickers__pb2.FindTickersUSResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -119,7 +119,7 @@ class TickersService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/finazon.TickersService/FindTickersStocks',
             finazon__grpc__python_dot_tickers__pb2.FindTickersStocksRequest.SerializeToString,
-            finazon__grpc__python_dot_tickers__pb2.FindTickerStocksResponse.FromString,
+            finazon__grpc__python_dot_tickers__pb2.FindTickersStocksResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -136,7 +136,7 @@ class TickersService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/finazon.TickersService/FindTickersCrypto',
             finazon__grpc__python_dot_tickers__pb2.FindTickersCryptoRequest.SerializeToString,
-            finazon__grpc__python_dot_tickers__pb2.FindTickerCryptoResponse.FromString,
+            finazon__grpc__python_dot_tickers__pb2.FindTickersCryptoResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -153,12 +153,12 @@ class TickersService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/finazon.TickersService/FindTickersForex',
             finazon__grpc__python_dot_tickers__pb2.FindTickersForexRequest.SerializeToString,
-            finazon__grpc__python_dot_tickers__pb2.FindTickerForexResponse.FromString,
+            finazon__grpc__python_dot_tickers__pb2.FindTickersForexResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def FindTickerUS(request,
+    def FindTickersUS(request,
             target,
             options=(),
             channel_credentials=None,
@@ -168,8 +168,8 @@ class TickersService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/finazon.TickersService/FindTickerUS',
-            finazon__grpc__python_dot_tickers__pb2.FindTickerUSRequest.SerializeToString,
-            finazon__grpc__python_dot_tickers__pb2.FindTickerUSResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/finazon.TickersService/FindTickersUS',
+            finazon__grpc__python_dot_tickers__pb2.FindTickersUSRequest.SerializeToString,
+            finazon__grpc__python_dot_tickers__pb2.FindTickersUSResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

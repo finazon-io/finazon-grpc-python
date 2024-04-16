@@ -30,7 +30,7 @@ message FindTickersStocksRequest {
     string dataset = 18;
 }
 
-message FindTickerStocksResponse {
+message FindTickersStocksResponse {
     repeated TickerStocksInfo result = 1;
 }
 
@@ -50,7 +50,7 @@ message FindTickersCryptoRequest {
     int32  page_size = 5;
 }
 
-message FindTickerCryptoResponse {
+message FindTickersCryptoResponse {
     repeated TickerCryptoInfo result = 1;
 }
 
@@ -66,7 +66,7 @@ message FindTickersForexRequest {
     int32  page_size = 3;
 }
 
-message FindTickerForexResponse {
+message FindTickersForexResponse {
     repeated TickerForexInfo result = 1;
 }
 
@@ -83,7 +83,7 @@ message TickerUSInfo {
     string lei = 12;
 }
 
-message FindTickerUSRequest {
+message FindTickersUSRequest {
     string ticker = 1;
     string mic = 2;
     int32  page = 3;
@@ -97,7 +97,7 @@ message FindTickerUSRequest {
     string lei = 11;
 }
 
-message FindTickerUSResponse {
+message FindTickersUSResponse {
     repeated TickerUSInfo result = 1;
 }
 
@@ -106,14 +106,14 @@ message FindTickerUSResponse {
  */
 service TickersService {
     // This API call returns an array of stocks tickers available at Finazon Data API. This list is updated daily.
-    rpc FindTickersStocks(FindTickersStocksRequest) returns (FindTickerStocksResponse) {};
+    rpc FindTickersStocks(FindTickersStocksRequest) returns (FindTickersStocksResponse) {};
 
     // This API call returns an array of crypto tickers available at Finazon Data API. This list is updated daily.
-    rpc FindTickersCrypto(FindTickersCryptoRequest) returns (FindTickerCryptoResponse) {};
+    rpc FindTickersCrypto(FindTickersCryptoRequest) returns (FindTickersCryptoResponse) {};
 
     // This API call returns an array of forex tickers available at Finazon Data API. This list is updated daily.
-    rpc FindTickersForex(FindTickersForexRequest) returns (FindTickerForexResponse) {};
+    rpc FindTickersForex(FindTickersForexRequest) returns (FindTickersForexResponse) {};
 
     // This API call returns an array of US tickers available at Finazon Data API. This list is updated daily.
-    rpc FindTickerUS(FindTickerUSRequest) returns (FindTickerUSResponse) {};
+    rpc FindTickersUS(FindTickersUSRequest) returns (FindTickersUSResponse) {};
 }

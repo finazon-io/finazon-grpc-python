@@ -97,7 +97,7 @@ class FindTickersStocksRequest(google.protobuf.message.Message):
 global___FindTickersStocksRequest = FindTickersStocksRequest
 
 @typing.final
-class FindTickerStocksResponse(google.protobuf.message.Message):
+class FindTickersStocksResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RESULT_FIELD_NUMBER: builtins.int
@@ -110,7 +110,7 @@ class FindTickerStocksResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["result", b"result"]) -> None: ...
 
-global___FindTickerStocksResponse = FindTickerStocksResponse
+global___FindTickersStocksResponse = FindTickersStocksResponse
 
 @typing.final
 class TickerCryptoInfo(google.protobuf.message.Message):
@@ -163,7 +163,7 @@ class FindTickersCryptoRequest(google.protobuf.message.Message):
 global___FindTickersCryptoRequest = FindTickersCryptoRequest
 
 @typing.final
-class FindTickerCryptoResponse(google.protobuf.message.Message):
+class FindTickersCryptoResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RESULT_FIELD_NUMBER: builtins.int
@@ -176,7 +176,7 @@ class FindTickerCryptoResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["result", b"result"]) -> None: ...
 
-global___FindTickerCryptoResponse = FindTickerCryptoResponse
+global___FindTickersCryptoResponse = FindTickersCryptoResponse
 
 @typing.final
 class TickerForexInfo(google.protobuf.message.Message):
@@ -217,7 +217,7 @@ class FindTickersForexRequest(google.protobuf.message.Message):
 global___FindTickersForexRequest = FindTickersForexRequest
 
 @typing.final
-class FindTickerForexResponse(google.protobuf.message.Message):
+class FindTickersForexResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RESULT_FIELD_NUMBER: builtins.int
@@ -230,7 +230,7 @@ class FindTickerForexResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["result", b"result"]) -> None: ...
 
-global___FindTickerForexResponse = FindTickerForexResponse
+global___FindTickersForexResponse = FindTickersForexResponse
 
 @typing.final
 class TickerUSInfo(google.protobuf.message.Message):
@@ -274,7 +274,7 @@ class TickerUSInfo(google.protobuf.message.Message):
 global___TickerUSInfo = TickerUSInfo
 
 @typing.final
-class FindTickerUSRequest(google.protobuf.message.Message):
+class FindTickersUSRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     TICKER_FIELD_NUMBER: builtins.int
@@ -316,10 +316,10 @@ class FindTickerUSRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["cik", b"cik", "composite_figi", b"composite_figi", "cqs", b"cqs", "cusip", b"cusip", "isin", b"isin", "lei", b"lei", "mic", b"mic", "page", b"page", "page_size", b"page_size", "share_figi", b"share_figi", "ticker", b"ticker"]) -> None: ...
 
-global___FindTickerUSRequest = FindTickerUSRequest
+global___FindTickersUSRequest = FindTickersUSRequest
 
 @typing.final
-class FindTickerUSResponse(google.protobuf.message.Message):
+class FindTickersUSResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RESULT_FIELD_NUMBER: builtins.int
@@ -332,4 +332,4 @@ class FindTickerUSResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["result", b"result"]) -> None: ...
 
-global___FindTickerUSResponse = FindTickerUSResponse
+global___FindTickersUSResponse = FindTickersUSResponse
