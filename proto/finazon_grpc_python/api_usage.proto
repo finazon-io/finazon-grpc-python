@@ -6,6 +6,10 @@ message ApiUsageItem {
   string product = 1;
   ApiCalls apiCalls = 2;
   ApiCalls historicalApiCalls = 3;
+  ApiCalls referenceApiCalls = 4;
+  ApiCalls timeSeriesApiCalls = 5;
+  ApiCalls snapshotsApiCalls = 6;
+  ApiCalls tradesApiCalls = 7;
 }
 
 message ApiCalls {

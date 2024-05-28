@@ -14,21 +14,21 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#finazon_grpc_python/api_usage.proto\x12\x07\x66inazon\"s\n\x0c\x41piUsageItem\x12\x0f\n\x07product\x18\x01 \x01(\t\x12#\n\x08\x61piCalls\x18\x02 \x01(\x0b\x32\x11.finazon.ApiCalls\x12-\n\x12historicalApiCalls\x18\x03 \x01(\x0b\x32\x11.finazon.ApiCalls\"(\n\x08\x41piCalls\x12\r\n\x05limit\x18\x01 \x01(\x05\x12\r\n\x05usage\x18\x02 \x01(\x05\"%\n\x12GetApiUsageRequest\x12\x0f\n\x07product\x18\x01 \x01(\t\"<\n\x13GetApiUsageResponse\x12%\n\x06result\x18\x01 \x03(\x0b\x32\x15.finazon.ApiUsageItem2]\n\x0f\x41piUsageService\x12J\n\x0bGetApiUsage\x12\x1b.finazon.GetApiUsageRequest\x1a\x1c.finazon.GetApiUsageResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#finazon_grpc_python/api_usage.proto\x12\x07\x66inazon\"\xa9\x02\n\x0c\x41piUsageItem\x12\x0f\n\x07product\x18\x01 \x01(\t\x12#\n\x08\x61piCalls\x18\x02 \x01(\x0b\x32\x11.finazon.ApiCalls\x12-\n\x12historicalApiCalls\x18\x03 \x01(\x0b\x32\x11.finazon.ApiCalls\x12,\n\x11referenceApiCalls\x18\x04 \x01(\x0b\x32\x11.finazon.ApiCalls\x12-\n\x12timeSeriesApiCalls\x18\x05 \x01(\x0b\x32\x11.finazon.ApiCalls\x12,\n\x11snapshotsApiCalls\x18\x06 \x01(\x0b\x32\x11.finazon.ApiCalls\x12)\n\x0etradesApiCalls\x18\x07 \x01(\x0b\x32\x11.finazon.ApiCalls\"(\n\x08\x41piCalls\x12\r\n\x05limit\x18\x01 \x01(\x05\x12\r\n\x05usage\x18\x02 \x01(\x05\"%\n\x12GetApiUsageRequest\x12\x0f\n\x07product\x18\x01 \x01(\t\"<\n\x13GetApiUsageResponse\x12%\n\x06result\x18\x01 \x03(\x0b\x32\x15.finazon.ApiUsageItem2]\n\x0f\x41piUsageService\x12J\n\x0bGetApiUsage\x12\x1b.finazon.GetApiUsageRequest\x1a\x1c.finazon.GetApiUsageResponse\"\x00\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'finazon_grpc_python.api_usage_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
-  _globals['_APIUSAGEITEM']._serialized_start=48
-  _globals['_APIUSAGEITEM']._serialized_end=163
-  _globals['_APICALLS']._serialized_start=165
-  _globals['_APICALLS']._serialized_end=205
-  _globals['_GETAPIUSAGEREQUEST']._serialized_start=207
-  _globals['_GETAPIUSAGEREQUEST']._serialized_end=244
-  _globals['_GETAPIUSAGERESPONSE']._serialized_start=246
-  _globals['_GETAPIUSAGERESPONSE']._serialized_end=306
-  _globals['_APIUSAGESERVICE']._serialized_start=308
-  _globals['_APIUSAGESERVICE']._serialized_end=401
+  _globals['_APIUSAGEITEM']._serialized_start=49
+  _globals['_APIUSAGEITEM']._serialized_end=346
+  _globals['_APICALLS']._serialized_start=348
+  _globals['_APICALLS']._serialized_end=388
+  _globals['_GETAPIUSAGEREQUEST']._serialized_start=390
+  _globals['_GETAPIUSAGEREQUEST']._serialized_end=427
+  _globals['_GETAPIUSAGERESPONSE']._serialized_start=429
+  _globals['_GETAPIUSAGERESPONSE']._serialized_end=489
+  _globals['_APIUSAGESERVICE']._serialized_start=491
+  _globals['_APIUSAGESERVICE']._serialized_end=584
 # @@protoc_insertion_point(module_scope)

@@ -19,20 +19,36 @@ class ApiUsageItem(google.protobuf.message.Message):
     PRODUCT_FIELD_NUMBER: builtins.int
     APICALLS_FIELD_NUMBER: builtins.int
     HISTORICALAPICALLS_FIELD_NUMBER: builtins.int
+    REFERENCEAPICALLS_FIELD_NUMBER: builtins.int
+    TIMESERIESAPICALLS_FIELD_NUMBER: builtins.int
+    SNAPSHOTSAPICALLS_FIELD_NUMBER: builtins.int
+    TRADESAPICALLS_FIELD_NUMBER: builtins.int
     product: builtins.str
     @property
     def apiCalls(self) -> global___ApiCalls: ...
     @property
     def historicalApiCalls(self) -> global___ApiCalls: ...
+    @property
+    def referenceApiCalls(self) -> global___ApiCalls: ...
+    @property
+    def timeSeriesApiCalls(self) -> global___ApiCalls: ...
+    @property
+    def snapshotsApiCalls(self) -> global___ApiCalls: ...
+    @property
+    def tradesApiCalls(self) -> global___ApiCalls: ...
     def __init__(
         self,
         *,
         product: builtins.str = ...,
         apiCalls: global___ApiCalls | None = ...,
         historicalApiCalls: global___ApiCalls | None = ...,
+        referenceApiCalls: global___ApiCalls | None = ...,
+        timeSeriesApiCalls: global___ApiCalls | None = ...,
+        snapshotsApiCalls: global___ApiCalls | None = ...,
+        tradesApiCalls: global___ApiCalls | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["apiCalls", b"apiCalls", "historicalApiCalls", b"historicalApiCalls"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["apiCalls", b"apiCalls", "historicalApiCalls", b"historicalApiCalls", "product", b"product"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["apiCalls", b"apiCalls", "historicalApiCalls", b"historicalApiCalls", "referenceApiCalls", b"referenceApiCalls", "snapshotsApiCalls", b"snapshotsApiCalls", "timeSeriesApiCalls", b"timeSeriesApiCalls", "tradesApiCalls", b"tradesApiCalls"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["apiCalls", b"apiCalls", "historicalApiCalls", b"historicalApiCalls", "product", b"product", "referenceApiCalls", b"referenceApiCalls", "snapshotsApiCalls", b"snapshotsApiCalls", "timeSeriesApiCalls", b"timeSeriesApiCalls", "tradesApiCalls", b"tradesApiCalls"]) -> None: ...
 
 global___ApiUsageItem = ApiUsageItem
 
